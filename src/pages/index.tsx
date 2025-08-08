@@ -1,26 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Mail, ExternalLink, Code, Palette, Zap, Coffee, Heart, Star, ArrowRight, Download } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, ExternalLink, Code, Palette, Zap, Coffee, ArrowRight, Download, Music, Pizza } from 'lucide-react';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Link } from '@/router';
 
 const HomePage = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isLoaded, setIsLoaded] = useState(false);
   const [, setActiveProject] = useState(0);
-
-  useEffect(() => {
-    setIsLoaded(true);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const technologies = [
     { name: 'React', icon: '⚛️', color: 'from-[#5F5AA2] to-[#355691]' },
@@ -99,48 +87,10 @@ const HomePage = () => {
   ];
 
   return (
-    <div className='min-h-screen bg-black text-white overflow-hidden relative'>
-      {/* Animated Background */}
-      <div className='fixed inset-0 z-0'>
-        <div
-          className='absolute w-96 h-96 bg-gradient-to-r from-[#5F5AA2]/20 to-[#355691]/20 rounded-full blur-3xl transition-all duration-1000 ease-out'
-          style={{
-            left: mousePosition.x - 192,
-            top: mousePosition.y - 192,
-          }}
-        />
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(95,90,162,0.1),transparent_50%)]' />
-      </div>
-
-      {/* Floating Navigation */}
-      <nav className='fixed top-6 left-1/2 transform -translate-x-1/2 z-50'>
-        <div className='bg-white/10 backdrop-blur-lg rounded-full px-6 py-3 border border-white/20'>
-          <div className='flex items-center space-x-20'>
-            <a href='#' className='text-white font-bold text-lg'>
-              {'<chrixs />'}
-            </a>
-            <div className='flex space-x-6'>
-              <Link to={'/'} className='text-white/80 hover:text-white transition-colors text-sm'>
-                Home
-              </Link>
-              <Link to={'/contact'} className='text-white/80 hover:text-white transition-colors text-sm'>
-                Contact
-              </Link>
-              <Link to={'/blog'} className='text-white/80 hover:text-white transition-colors text-sm'>
-                Blog
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <>
       {/* Hero Section */}
       <section className='min-h-screen flex items-center justify-center relative z-10 px-6'>
-        <div
-          className={`text-center transition-all duration-2000 ${
-            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
+        <div className={`text-center transition-all duration-2000`}>
           <div className='mb-8 relative'>
             <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-[#5F5AA2] to-[#355691] p-1 animate-pulse'>
               <div className='w-full h-full rounded-full overflow-hidden bg-black'>
@@ -159,17 +109,16 @@ const HomePage = () => {
           </div>
 
           <h1 className='text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white via-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
-            MAYA PATEL
+            chrxs
           </h1>
 
           <div className='text-xl md:text-2xl text-gray-300 mb-8 font-light'>
             <span className='inline-block animate-pulse'>{'>'}</span>
-            <span className='ml-2'>Creative Developer & Digital Architect</span>
+            <span className='ml-2'>Software Fullstack Developer</span>
           </div>
 
           <p className='text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed'>
-            I build impossible things with code, turning wild ideas into digital reality. Specializing in AI, 3D
-            experiences, and the future of human-computer interaction.
+            I build impossible things with code, turning wild ideas into digital reality.
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
@@ -216,25 +165,30 @@ const HomePage = () => {
               </h2>
               <div className='space-y-6 text-gray-300 leading-relaxed'>
                 <p>
-                  I'm a creative developer who lives at the intersection of art and technology. With 6+ years of
-                  experience, I've built everything from AI-powered applications to immersive 3D experiences.
+                  I'm a creative developer who lives at the intersection of art and technology. With 1.5+ years building
+                  scalable React.js, TypeScript, and React Native applications with full-stack capabilities in NestJS
+                  and Spring Boot. Proven track record delivering high-performance solutions through Agile
+                  collaboration, API integration, and delivering high-performance applications.
                 </p>
                 <p>
-                  When I'm not coding, you'll find me experimenting with generative art, contributing to open source
-                  projects, or exploring the latest in quantum computing.
+                  When I'm not coding, you'll find me experimenting trying to connect technology with music or exploring
+                  the latest AI features.
                 </p>
                 <div className='flex items-center gap-4 pt-4'>
+                  <h2 className='text-xl font-bold bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+                    Fun facts:
+                  </h2>
                   <div className='flex items-center gap-2'>
                     <Coffee className='w-5 h-5 text-yellow-500' />
-                    <span>Coffee Enthusiast</span>
+                    <span>Coffee Addict</span>
                   </div>
                   <div className='flex items-center gap-2'>
-                    <Heart className='w-5 h-5 text-red-500' />
-                    <span>Open Source</span>
+                    <Music className='w-5 h-5 text-red-500' />
+                    <span>Beatmaker</span>
                   </div>
                   <div className='flex items-center gap-2'>
-                    <Zap className='w-5 h-5 text-blue-500' />
-                    <span>Innovation</span>
+                    <Pizza className='w-5 h-5 text-blue-500' />
+                    <span>Pizza Lover</span>
                   </div>
                 </div>
               </div>
@@ -243,20 +197,12 @@ const HomePage = () => {
               <div className='bg-gradient-to-r from-[#5F5AA2]/20 to-[#355691]/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
                 <div className='grid grid-cols-2 gap-6 text-center'>
                   <div>
-                    <div className='text-3xl font-bold text-[#5F5AA2]'>50+</div>
+                    <div className='text-3xl font-bold text-[#5F5AA2]'>5+</div>
                     <div className='text-gray-400'>Projects</div>
                   </div>
                   <div>
-                    <div className='text-3xl font-bold text-[#355691]'>6+</div>
+                    <div className='text-3xl font-bold text-[#355691]'>1.5+</div>
                     <div className='text-gray-400'>Years</div>
-                  </div>
-                  <div>
-                    <div className='text-3xl font-bold text-[#413E54]'>100k+</div>
-                    <div className='text-gray-400'>Users</div>
-                  </div>
-                  <div>
-                    <div className='text-3xl font-bold text-[#5F5AA2]'>15+</div>
-                    <div className='text-gray-400'>Awards</div>
                   </div>
                 </div>
               </div>
@@ -443,14 +389,14 @@ const HomePage = () => {
                   </div>
                 </div>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <LinkedInLogoIcon />
+                  <LinkedInLogoIcon color='#5F5AA2' width={23} height={23} />
                   <div>
                     <div className='text-white font-medium'>LinkedIn</div>
                     <div className='text-gray-400'>@mayapatel-dev</div>
                   </div>
                 </div>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <GitHubLogoIcon className='w-6 h-6 text-[#413E54]' />
+                  <GitHubLogoIcon className='w-6 h-6 text-[#5F5AA2]' />
                   <div>
                     <div className='text-white font-medium'>GitHub</div>
                     <div className='text-gray-400'>@maya-creative</div>
@@ -526,22 +472,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className='py-12 px-6 border-t border-white/10 relative z-10'>
-        <div className='max-w-6xl mx-auto'>
-          <div className='flex flex-col md:flex-row justify-between items-center'>
-            <div className='text-gray-400 mb-4 md:mb-0'>
-              © 2024 Maya Patel. Crafted with <Heart className='w-4 h-4 inline text-red-500' /> and lots of coffee.
-            </div>
-            <div className='flex items-center gap-2 text-gray-400'>
-              <Star className='w-4 h-4 text-yellow-500' />
-              <span>Available for freelance work</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 };
 
