@@ -33,7 +33,7 @@ const ContactPage = () => {
     <>
       <section className='py-20 px-6 relative z-10'>
         <div className='max-w-4xl mx-auto'>
-          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Let's Create Something Amazing
           </h2>
 
@@ -47,7 +47,7 @@ const ContactPage = () => {
 
               <div className='space-y-4'>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <Mail className='w-6 h-6 text-[#5F5AA2]' />
+                  <Mail className='w-6 h-6 text-minimal-purple' />
                   <div>
                     <div className='text-white font-medium'>Email</div>
                     <div className='text-gray-400'>{ASSETS.social.email}</div>
@@ -61,7 +61,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <GitHubLogoIcon className='w-6 h-6 text-[#5F5AA2]' />
+                  <GitHubLogoIcon className='w-6 h-6 text-minimal-purple' />
                   <div>
                     <div className='text-white font-medium'>GitHub</div>
                     <div className='text-gray-400'>{ASSETS.social.github.split('/').pop()}</div>
@@ -72,7 +72,7 @@ const ContactPage = () => {
 
             <div className='bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
               <div className='flex items-center gap-3 mb-6'>
-                <MessageCircle className='w-6 h-6 text-[#5F5AA2]' />
+                <MessageCircle className='w-6 h-6 text-minimal-purple' />
                 <h3 className='text-2xl font-bold text-white'>Send a Message</h3>
               </div>
 
@@ -88,7 +88,7 @@ const ContactPage = () => {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder='John Doe'
-                      className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
+                      className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
                     />
                   </div>
                 </div>
@@ -104,7 +104,7 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder='john@example.com'
-                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
+                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
                   />
                 </div>
 
@@ -118,7 +118,7 @@ const ContactPage = () => {
                     value={formData.project}
                     onChange={handleChange}
                     placeholder='Web App, Mobile App, AI Project...'
-                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
+                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
                   />
                 </div>
 
@@ -132,13 +132,13 @@ const ContactPage = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder='Tell me about your vision, job offer or any specific requirements...'
-                    className='min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
+                    className='min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
                   />
                 </div>
 
                 <Button
                   type='submit'
-                  className='w-full bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 py-3'
+                  className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3'
                 >
                   <Send className='w-4 h-4 mr-2' />
                   Send Message
