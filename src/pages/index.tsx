@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, ExternalLink, Coffee, ArrowRight, Download, Music, Pizza } from 'lucide-react';
+import { Mail, ExternalLink, Coffee, Download, Music, Pizza, MessageCircle, Send, Calendar } from 'lucide-react';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { ASSETS } from '@/constants/sources';
 import type { IconName } from '@/types';
 import { SkillIcon } from '@/components/SkillIcon';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [, setActiveProject] = useState(0);
@@ -133,32 +134,32 @@ const HomePage = () => {
           </div>
 
           <div className='flex justify-center gap-6 mt-12'>
-            <a
-              href={ASSETS.social.github}
+            <Link
+              to={ASSETS.social.github}
               target='_blank'
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <GitHubLogoIcon width={22} height={22} />
-            </a>
-            <a
-              href={ASSETS.social.linkedin}
+            </Link>
+            <Link
+              to={ASSETS.social.linkedin}
               target='_blank'
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <LinkedInLogoIcon width={22} height={22} />
-            </a>
-            <a
-              href={`mailto:${ASSETS.social.email}`}
+            </Link>
+            <Link
+              to={`mailto:${ASSETS.social.email}`}
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <Mail className='w-6 h-6' />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id='about' className='py-20 px-6 relative z-10'>
+      <section id='about' className='py-36 px-6 relative z-10'>
         <div className='max-w-6xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-16 items-center'>
             <div>
@@ -214,7 +215,7 @@ const HomePage = () => {
       </section>
 
       {/* Skills Section */}
-      <section id='skills' className='py-14 px-6 relative z-10'>
+      <section id='skills' className='py-32 px-6 relative z-10'>
         <div className='max-w-6xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
             Skills & Expertise
@@ -239,7 +240,7 @@ const HomePage = () => {
       </section>
 
       {/* Experience Section */}
-      <section id='experience' className='py-20 px-6 relative z-10'>
+      <section id='experience' className='py-32 px-6 relative z-10'>
         <div className='max-w-4xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
             Experience
@@ -299,7 +300,7 @@ const HomePage = () => {
       </section>
 
       {/* Projects Section */}
-      <section id='projects' className='py-20 px-6 relative z-10'>
+      <section id='projects' className='py-32 px-6 relative z-10'>
         <div className='max-w-7xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
             Featured Projects
@@ -349,18 +350,84 @@ const HomePage = () => {
                         <ExternalLink className='w-4 h-4' />
                       </a>
                     </Button>
-                    <Button size='sm' asChild className='ml-auto bg-white/10 hover:bg-white/20 text-white border-0'>
-                      <a href={project.live} target='_blank'>
-                        {' '}
-                        {/* Linking to live demo for "View Details" */}
-                        View Details
-                        <ArrowRight className='w-4 h-4 ml-1' />
-                      </a>
-                    </Button>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section id='contact' className='py-32 px-6 relative z-10'>
+        <div className='max-w-4xl mx-auto text-center'>
+          <div className='relative py-20 z-10'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r leading-16 from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+              Ready to Build Something Amazing?
+            </h2>
+
+            <p className='text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed'>
+              I'm always excited to collaborate on innovative projects that push the boundaries of what's possible.
+              Let's turn your vision into reality.
+            </p>
+
+            <div className='grid md:grid-cols-3 gap-6 mb-10'>
+              <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
+                <MessageCircle className='w-8 h-8 text-[#5F5AA2] mb-3' />
+                <h3 className='text-lg font-semibold text-white mb-2'>Let's Chat</h3>
+                <p className='text-gray-400 text-sm text-center'>
+                  Discuss your project ideas and explore possibilities
+                </p>
+              </div>
+
+              <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
+                <Send className='w-8 h-8 text-[#355691] mb-3' />
+                <h3 className='text-lg font-semibold text-white mb-2'>Quick Response</h3>
+                <p className='text-gray-400 text-sm text-center'>I typically respond within 24 hours</p>
+              </div>
+
+              <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
+                <Calendar className='w-8 h-8 text-[#413E54] mb-3' />
+                <h3 className='text-lg font-semibold text-white mb-2'>Schedule a Call</h3>
+                <p className='text-gray-400 text-sm text-center'>Book a free consultation to discuss your needs</p>
+              </div>
+            </div>
+
+            <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+              <Button
+                size='lg'
+                asChild
+                className='bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 px-8 py-3 rounded-full'
+              >
+                <Link to='/contact'>
+                  <Mail className='w-5 h-5 mr-2' />
+                  Get In Touch
+                </Link>
+              </Button>
+            </div>
+
+            <div className='flex justify-center gap-6 mt-8'>
+              <Link
+                to={ASSETS.social.github}
+                className='text-gray-400 hover:text-[#5F5AA2] transition-colors'
+                target='_blank'
+              >
+                <GitHubLogoIcon className='w-6 h-6' />
+              </Link>
+              <Link
+                to={ASSETS.social.linkedin}
+                className='text-gray-400 hover:text-[#355691] transition-colors'
+                target='_blank'
+              >
+                <LinkedInLogoIcon className='w-6 h-6' />
+              </Link>
+              <Link
+                to={`mailto:${ASSETS.social.email}`}
+                className='text-gray-400 hover:text-[#413E54] transition-colors'
+              >
+                <Mail className='w-6 h-6' />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
