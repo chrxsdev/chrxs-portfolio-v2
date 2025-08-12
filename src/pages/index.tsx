@@ -1,28 +1,32 @@
 import { useState } from 'react';
-import { Mail, ExternalLink, Code, Palette, Zap, Coffee, ArrowRight, Download, Music, Pizza } from 'lucide-react';
+import { Mail, ExternalLink, Coffee, ArrowRight, Download, Music, Pizza } from 'lucide-react';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+
+import { ASSETS } from '@/constants/sources';
+import type { IconName } from '@/types';
+import { SkillIcon } from '@/components/SkillIcon';
 
 const HomePage = () => {
   const [, setActiveProject] = useState(0);
 
   const technologies = [
-    { name: 'React', icon: '⚛️', color: 'from-[#5F5AA2] to-[#355691]' },
-    { name: 'Next.js', icon: '▲', color: 'from-[#413E54] to-[#30232F]' },
-    { name: 'TypeScript', icon: 'TS', color: 'from-[#355691] to-[#5F5AA2]' },
-    { name: 'Node.js', icon: '🟢', color: 'from-[#5F5AA2] to-[#413E54]' },
-    { name: 'Python', icon: '🐍', color: 'from-[#355691] to-[#3F4045]' },
-    { name: 'AWS', icon: '☁️', color: 'from-[#413E54] to-[#5F5AA2]' },
-    { name: 'Docker', icon: '🐳', color: 'from-[#5F5AA2] to-[#355691]' },
-    { name: 'GraphQL', icon: '◆', color: 'from-[#355691] to-[#413E54]' },
-    { name: 'MongoDB', icon: '🍃', color: 'from-[#5F5AA2] to-[#30232F]' },
-    { name: 'PostgreSQL', icon: '🐘', color: 'from-[#413E54] to-[#355691]' },
-    { name: 'Redis', icon: '◊', color: 'from-[#355691] to-[#5F5AA2]' },
-    { name: 'Kubernetes', icon: '⎈', color: 'from-[#5F5AA2] to-[#3F4045]' },
+    { name: 'React', key: 'react', color: 'from-[#5F5AA2] to-[#355691]' },
+    { name: 'Next.js', key: 'nextjs', color: 'from-[#413E54] to-[#30232F]' },
+    { name: 'JavaScript', key: 'javascript', color: 'from-[#355691] to-[#5F5AA2]' },
+    { name: 'TypeScript', key: 'typescript', color: 'from-[#355691] to-[#5F5AA2]' },
+    { name: 'Java', key: 'java', color: 'from-[#355691] to-[#5F5AA2]' },
+    { name: 'Node.js', key: 'nodejs', color: 'from-[#5F5AA2] to-[#413E54]' },
+    { name: 'NestJS', key: 'nestjs', color: 'from-[#5F5AA2] to-[#413E54]' },
+    { name: 'Express.js', key: 'express', color: 'from-[#5F5AA2] to-[#413E54]' },
+    { name: 'Spring Boot', key: 'spring', color: 'from-[#413E54] to-[#355691]' },
+    { name: 'PostgreSQL', key: 'postgresql', color: 'from-[#413E54] to-[#355691]' },
+    { name: 'MySQL', key: 'mysql', color: 'from-[#413E54] to-[#355691]' },
+    { name: 'MongoDB', key: 'mongodb', color: 'from-[#5F5AA2] to-[#30232F]' },
+    { name: 'AWS', key: 'aws', color: 'from-[#413E54] to-[#5F5AA2]' },
+    { name: 'Firebase', key: 'firebase', color: 'from-[#413E54] to-[#5F5AA2]' },
+    { name: 'Docker', key: 'docker', color: 'from-[#5F5AA2] to-[#355691]' },
   ];
 
   const experiences = [
@@ -31,28 +35,24 @@ const HomePage = () => {
       company: 'TechCorp',
       period: '2022 - Present',
       location: 'San Francisco, CA',
-      techStack: ['⚛️', 'TS', '🟢', '☁️', '🐘'],
     },
     {
       title: 'Lead Frontend Developer',
       company: 'InnovateLab',
       period: '2020 - 2022',
       location: 'Remote',
-      techStack: ['▲', '⚛️', 'TS', '◆', '🍃'],
     },
     {
       title: 'Full Stack Developer',
       company: 'StartupXYZ',
       period: '2019 - 2020',
       location: 'New York, NY',
-      techStack: ['⚛️', '🟢', '🐍', '🐳', '◊'],
     },
     {
       title: 'Frontend Developer',
       company: 'DigitalAgency',
       period: '2018 - 2019',
       location: 'Los Angeles, CA',
-      techStack: ['⚛️', 'TS', '🟢', '🍃'],
     },
   ];
 
@@ -95,7 +95,7 @@ const HomePage = () => {
             <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-[#5F5AA2] to-[#355691] p-1 animate-pulse'>
               <div className='w-full h-full rounded-full overflow-hidden bg-black'>
                 <img
-                  src='/placeholder.svg?height=128&width=128'
+                  src={ASSETS.profile}
                   alt='Developer Avatar'
                   width={128}
                   height={128}
@@ -124,29 +124,31 @@ const HomePage = () => {
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Button
               size='lg'
-              className='bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 px-8 py-3 rounded-full'
-              onClick={() => console.log('clicked')}
+              className='bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
+              onClick={() => console.log('here option to download CV')}
             >
               <Download className='w-4 h-4 mr-2' />
-              Download Resume
+              Download CV
             </Button>
           </div>
 
           <div className='flex justify-center gap-6 mt-12'>
             <a
-              href='#'
+              href={ASSETS.social.github}
+              target='_blank'
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <GitHubLogoIcon width={22} height={22} />
             </a>
             <a
-              href='#'
+              href={ASSETS.social.linkedin}
+              target='_blank'
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <LinkedInLogoIcon width={22} height={22} />
             </a>
             <a
-              href='#'
+              href={`mailto:${ASSETS.social.email}`}
               className='w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors'
             >
               <Mail className='w-6 h-6' />
@@ -212,88 +214,86 @@ const HomePage = () => {
       </section>
 
       {/* Skills Section */}
-      <section id='skills' className='py-20 px-6 relative z-10'>
+      <section id='skills' className='py-14 px-6 relative z-10'>
         <div className='max-w-6xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
             Skills & Expertise
           </h2>
 
           {/* Technology Circles */}
-          <div className='flex flex-wrap justify-center gap-6 mb-16'>
+          <div className='flex flex-wrap justify-center gap-6 mb-16 p-4'>
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className={`group relative w-24 h-24 rounded-full bg-gradient-to-br ${tech.color} p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
+                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br ${tech.color} p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
               >
                 <div className='w-full h-full rounded-full bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm'>
-                  <div className='text-2xl mb-1'>{tech.icon}</div>
+                  <SkillIcon name={tech.key as IconName} />
                   <div className='text-xs text-white font-medium text-center leading-tight'>{tech.name}</div>
                 </div>
                 <div className='absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
               </div>
             ))}
           </div>
-
-          <div className='mt-16 grid md:grid-cols-3 gap-8'>
-            <div className='text-center p-6 bg-gradient-to-br from-[#5F5AA2]/20 to-transparent rounded-xl border border-[#5F5AA2]/30'>
-              <Code className='w-12 h-12 mx-auto mb-4 text-[#5F5AA2]' />
-              <h3 className='text-xl font-semibold mb-2'>Full Stack Development</h3>
-              <p className='text-gray-400'>End-to-end application development with modern frameworks</p>
-            </div>
-            <div className='text-center p-6 bg-gradient-to-br from-[#355691]/20 to-transparent rounded-xl border border-[#355691]/30'>
-              <Palette className='w-12 h-12 mx-auto mb-4 text-[#355691]' />
-              <h3 className='text-xl font-semibold mb-2'>Creative Design</h3>
-              <p className='text-gray-400'>UI/UX design with a focus on innovative user experiences</p>
-            </div>
-            <div className='text-center p-6 bg-gradient-to-br from-[#413E54]/20 to-transparent rounded-xl border border-[#413E54]/30'>
-              <Zap className='w-12 h-12 mx-auto mb-4 text-[#413E54]' />
-              <h3 className='text-xl font-semibold mb-2'>Emerging Tech</h3>
-              <p className='text-gray-400'>AI, AR/VR, and cutting-edge technology integration</p>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Experience Section */}
       <section id='experience' className='py-20 px-6 relative z-10'>
-        <div className='max-w-6xl mx-auto'>
+        <div className='max-w-4xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
             Experience
           </h2>
 
-          <div className='space-y-8'>
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className='bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'
-              >
-                <div className='flex flex-col md:flex-row md:items-center justify-between gap-4'>
-                  <div className='flex-1'>
-                    <h3 className='text-xl font-semibold text-white mb-1'>{exp.title}</h3>
-                    <div className='flex items-center gap-4 text-gray-400 mb-2'>
-                      <span className='font-medium text-[#5F5AA2]'>{exp.company}</span>
-                      <span>•</span>
-                      <span>{exp.location}</span>
+          <div className='relative'>
+            {/* Timeline Line */}
+            <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#5F5AA2] to-[#355691]'></div>
+
+            <div className='space-y-12'>
+              {experiences.map((exp, index) => (
+                <div key={index} className='relative flex items-start gap-8'>
+                  {/* Company Logo */}
+                  <div className='relative z-10 flex-shrink-0'>
+                    <div className='w-16 h-16 rounded-full bg-gradient-to-br from-[#5F5AA2] to-[#355691] p-0.5'>
+                      <div className='w-full h-full rounded-full overflow-hidden bg-white'>
+                        <img
+                          src={`/placeholder.svg?height=64&width=64&text=${exp.company}`}
+                          alt={`${exp.company} logo`}
+                          width={64}
+                          height={64}
+                          className='w-full h-full object-cover'
+                        />
+                      </div>
                     </div>
-                    <div className='text-sm text-gray-500'>{exp.period}</div>
+                    {/* Timeline Dot */}
+                    <div className='absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-[#5F5AA2] rounded-full border-4 border-black'></div>
                   </div>
 
-                  <div className='flex items-center gap-3'>
-                    <span className='text-sm text-gray-400 mr-2'>Tech Stack:</span>
-                    <div className='flex gap-2'>
-                      {exp.techStack.map((tech, techIndex) => (
-                        <div
-                          key={techIndex}
-                          className='w-8 h-8 rounded-full bg-gradient-to-br from-[#5F5AA2]/30 to-[#355691]/30 flex items-center justify-center text-sm border border-white/20'
-                        >
-                          {tech}
-                        </div>
-                      ))}
+                  {/* Experience Card */}
+                  <div className='flex-1 bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group'>
+                    <h3 className='text-xl font-semibold text-white mb-2'>{exp.title}</h3>
+                    <div className='flex flex-row justify-between'>
+                      <div className='flex flex-1 items-center gap-3 text-gray-400'>
+                        <span className='font-medium text-[#5F5AA2] text-lg'>{exp.company}</span>
+                        <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
+                        <span>{exp.location}</span>
+                      </div>
+                      <div className='inline-flex items-center px-3 rounded-full bg-[#5F5AA2]/20 border border-[#5F5AA2]/30'>
+                        <span className='text-sm text-[#5F5AA2] font-medium'>{exp.period}</span>
+                      </div>
                     </div>
+
+                    {/* Hover Effect Line */}
+                    <div className='h-0.5 bg-gradient-to-r from-[#5F5AA2] to-[#355691] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Timeline End Dot */}
+            <div className='absolute left-6 bottom-0 w-6 h-6 bg-gradient-to-br from-[#5F5AA2] to-[#355691] rounded-full border-4 border-black flex items-center justify-center'>
+              <div className='w-2 h-2 bg-white rounded-full'></div>
+            </div>
           </div>
         </div>
       </section>
@@ -361,114 +361,6 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id='contact' className='py-20 px-6 relative z-10'>
-        <div className='max-w-4xl mx-auto'>
-          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
-            Let's Create Something Amazing
-          </h2>
-
-          <div className='grid md:grid-cols-2 gap-12'>
-            <div>
-              <h3 className='text-2xl font-semibold mb-6 text-white'>Ready to collaborate?</h3>
-              <p className='text-gray-300 mb-8 leading-relaxed'>
-                I'm always excited to work on innovative projects that push the boundaries of what's possible. Let's
-                turn your vision into reality.
-              </p>
-
-              <div className='space-y-4'>
-                <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <Mail className='w-6 h-6 text-[#5F5AA2]' />
-                  <div>
-                    <div className='text-white font-medium'>Email</div>
-                    <div className='text-gray-400'>maya@creativecode.dev</div>
-                  </div>
-                </div>
-                <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <LinkedInLogoIcon color='#5F5AA2' width={23} height={23} />
-                  <div>
-                    <div className='text-white font-medium'>LinkedIn</div>
-                    <div className='text-gray-400'>@mayapatel-dev</div>
-                  </div>
-                </div>
-                <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
-                  <GitHubLogoIcon className='w-6 h-6 text-[#5F5AA2]' />
-                  <div>
-                    <div className='text-white font-medium'>GitHub</div>
-                    <div className='text-gray-400'>@maya-creative</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
-              <form className='space-y-6'>
-                <div className='grid grid-cols-2 gap-4'>
-                  <div className='space-y-2'>
-                    <Label htmlFor='firstName' className='text-white'>
-                      First name
-                    </Label>
-                    <Input
-                      id='firstName'
-                      placeholder='John'
-                      className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
-                    />
-                  </div>
-                  <div className='space-y-2'>
-                    <Label htmlFor='lastName' className='text-white'>
-                      Last name
-                    </Label>
-                    <Input
-                      id='lastName'
-                      placeholder='Doe'
-                      className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
-                    />
-                  </div>
-                </div>
-                <div className='space-y-2'>
-                  <Label htmlFor='email' className='text-white'>
-                    Email
-                  </Label>
-                  <Input
-                    id='email'
-                    type='email'
-                    placeholder='john@example.com'
-                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
-                  />
-                </div>
-                <div className='space-y-2'>
-                  <Label htmlFor='project' className='text-white'>
-                    Project Type
-                  </Label>
-                  <Input
-                    id='project'
-                    placeholder='Web App, Mobile App, AI Project...'
-                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
-                  />
-                </div>
-                <div className='space-y-2'>
-                  <Label htmlFor='message' className='text-white'>
-                    Message
-                  </Label>
-                  <Textarea
-                    id='message'
-                    placeholder='Tell me about your vision...'
-                    className='min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#5F5AA2]'
-                  />
-                </div>
-                <Button
-                  type='submit'
-                  className='w-full bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 py-3'
-                >
-                  Send Message
-                  <ArrowRight className='w-4 h-4 ml-2' />
-                </Button>
-              </form>
-            </div>
           </div>
         </div>
       </section>

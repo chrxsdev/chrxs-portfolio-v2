@@ -1,0 +1,16 @@
+export type IconName =
+  | 'react'
+  | 'nextjs'
+  | 'javascript'
+  | 'typescript'
+  | 'java'
+  | 'nodejs'
+  | 'express'
+  | 'nestjs'
+  | 'spring'
+  | 'postgresql'
+  | 'mysql'
+  | 'mongodb'
+  | 'aws'
+  | 'firebase'
+  | 'docker';
