@@ -93,7 +93,7 @@ const HomePage = () => {
       <section className='min-h-screen flex items-center justify-center relative z-10 px-6'>
         <div className={`text-center transition-all duration-2000`}>
           <div className='mb-8 relative'>
-            <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-[#5F5AA2] to-[#355691] p-1 animate-pulse'>
+            <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-minimal-purple to-minimal-blue p-1 animate-pulse'>
               <div className='w-full h-full rounded-full overflow-hidden bg-black'>
                 <img
                   src={ASSETS.profile}
@@ -104,12 +104,12 @@ const HomePage = () => {
                 />
               </div>
             </div>
-            <div className='absolute -top-2 -right-2 w-8 h-8 bg-[#355691] rounded-full flex items-center justify-center animate-bounce'>
+            <div className='absolute -top-2 -right-2 w-8 h-8 bg-minimal-blue rounded-full flex items-center justify-center animate-bounce'>
               <div className='w-3 h-3 bg-white rounded-full' />
             </div>
           </div>
 
-          <h1 className='text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white via-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+          <h1 className='text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white via-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             chrxs
           </h1>
 
@@ -125,7 +125,7 @@ const HomePage = () => {
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <Button
               size='lg'
-              className='bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
+              className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
               onClick={() => console.log('here option to download CV')}
             >
               <Download className='w-4 h-4 mr-2' />
@@ -163,7 +163,7 @@ const HomePage = () => {
         <div className='max-w-6xl mx-auto'>
           <div className='grid md:grid-cols-2 gap-16 items-center'>
             <div>
-              <h2 className='text-4xl font-bold mb-8 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+              <h2 className='text-4xl font-bold mb-8 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
                 About Me
               </h2>
               <div className='space-y-6 text-gray-300 leading-relaxed'>
@@ -178,7 +178,7 @@ const HomePage = () => {
                   the latest AI features.
                 </p>
                 <div className='flex items-center gap-4 pt-4'>
-                  <h2 className='text-xl font-bold bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+                  <h2 className='text-xl font-bold bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
                     Fun facts:
                   </h2>
                   <div className='flex items-center gap-2'>
@@ -197,14 +197,14 @@ const HomePage = () => {
               </div>
             </div>
             <div className='relative'>
-              <div className='bg-gradient-to-r from-[#5F5AA2]/20 to-[#355691]/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
+              <div className='bg-gradient-to-r from-minimal-purple/20 to-minimal-blue/20 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
                 <div className='grid grid-cols-2 gap-6 text-center'>
                   <div>
-                    <div className='text-3xl font-bold text-[#5F5AA2]'>5+</div>
+                    <div className='text-3xl font-bold text-minimal-purple'>5+</div>
                     <div className='text-gray-400'>Projects</div>
                   </div>
                   <div>
-                    <div className='text-3xl font-bold text-[#355691]'>1.5+</div>
+                    <div className='text-3xl font-bold text-minimal-blue'>1.5+</div>
                     <div className='text-gray-400'>Years</div>
                   </div>
                 </div>
@@ -217,7 +217,7 @@ const HomePage = () => {
       {/* Skills Section */}
       <section id='skills' className='py-32 px-6 relative z-10'>
         <div className='max-w-6xl mx-auto'>
-          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Skills & Expertise
           </h2>
 
@@ -242,20 +242,20 @@ const HomePage = () => {
       {/* Experience Section */}
       <section id='experience' className='py-32 px-6 relative z-10'>
         <div className='max-w-4xl mx-auto'>
-          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Experience
           </h2>
 
           <div className='relative'>
             {/* Timeline Line */}
-            <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#5F5AA2] to-[#355691]'></div>
+            <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-minimal-purple to-minimal-blue'></div>
 
             <div className='space-y-12'>
               {experiences.map((exp, index) => (
                 <div key={index} className='relative flex items-start gap-8'>
                   {/* Company Logo */}
                   <div className='relative z-10 flex-shrink-0'>
-                    <div className='w-16 h-16 rounded-full bg-gradient-to-br from-[#5F5AA2] to-[#355691] p-0.5'>
+                    <div className='w-16 h-16 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5'>
                       <div className='w-full h-full rounded-full overflow-hidden bg-white'>
                         <img
                           src={`/placeholder.svg?height=64&width=64&text=${exp.company}`}
@@ -267,7 +267,7 @@ const HomePage = () => {
                       </div>
                     </div>
                     {/* Timeline Dot */}
-                    <div className='absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-[#5F5AA2] rounded-full border-4 border-black'></div>
+                    <div className='absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-minimal-purple rounded-full border-4 border-black'></div>
                   </div>
 
                   {/* Experience Card */}
@@ -279,20 +279,20 @@ const HomePage = () => {
                         <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
                         <span>{exp.location}</span>
                       </div>
-                      <div className='inline-flex items-center px-3 rounded-full bg-[#5F5AA2]/20 border border-[#5F5AA2]/30'>
-                        <span className='text-sm text-[#5F5AA2] font-medium'>{exp.period}</span>
+                      <div className='inline-flex items-center px-3 rounded-full bg-minimal-purple/20 border border-minimal-purple/30'>
+                        <span className='text-sm text-minimal-purple font-medium'>{exp.period}</span>
                       </div>
                     </div>
 
                     {/* Hover Effect Line */}
-                    <div className='h-0.5 bg-gradient-to-r from-[#5F5AA2] to-[#355691] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
+                    <div className='h-0.5 bg-gradient-to-r from-minimal-purple to-minimal-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Timeline End Dot */}
-            <div className='absolute left-6 bottom-0 w-6 h-6 bg-gradient-to-br from-[#5F5AA2] to-[#355691] rounded-full border-4 border-black flex items-center justify-center'>
+            <div className='absolute left-6 bottom-0 w-6 h-6 bg-gradient-to-br from-minimal-purple to-minimal-blue rounded-full border-4 border-black flex items-center justify-center'>
               <div className='w-2 h-2 bg-white rounded-full'></div>
             </div>
           </div>
@@ -302,7 +302,7 @@ const HomePage = () => {
       {/* Projects Section */}
       <section id='projects' className='py-32 px-6 relative z-10'>
         <div className='max-w-7xl mx-auto'>
-          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+          <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Featured Projects
           </h2>
 
@@ -362,7 +362,7 @@ const HomePage = () => {
       <section id='contact' className='py-32 px-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center'>
           <div className='relative py-20 z-10'>
-            <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r leading-16 from-[#5F5AA2] to-[#355691] bg-clip-text text-transparent'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r leading-16 from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
               Ready to Build Something Amazing?
             </h2>
 
@@ -373,7 +373,7 @@ const HomePage = () => {
 
             <div className='grid md:grid-cols-3 gap-6 mb-10'>
               <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
-                <MessageCircle className='w-8 h-8 text-[#5F5AA2] mb-3' />
+                <MessageCircle className='w-8 h-8 text-minimal-purple mb-3' />
                 <h3 className='text-lg font-semibold text-white mb-2'>Let's Chat</h3>
                 <p className='text-gray-400 text-sm text-center'>
                   Discuss your project ideas and explore possibilities
@@ -381,13 +381,13 @@ const HomePage = () => {
               </div>
 
               <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
-                <Send className='w-8 h-8 text-[#355691] mb-3' />
+                <Send className='w-8 h-8 text-minimal-blue mb-3' />
                 <h3 className='text-lg font-semibold text-white mb-2'>Quick Response</h3>
                 <p className='text-gray-400 text-sm text-center'>I typically respond within 24 hours</p>
               </div>
 
               <div className='flex flex-col items-center p-6 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300'>
-                <Calendar className='w-8 h-8 text-[#413E54] mb-3' />
+                <Calendar className='w-8 h-8 text-minimal-blue mb-3' />
                 <h3 className='text-lg font-semibold text-white mb-2'>Schedule a Call</h3>
                 <p className='text-gray-400 text-sm text-center'>Book a free consultation to discuss your needs</p>
               </div>
@@ -397,7 +397,7 @@ const HomePage = () => {
               <Button
                 size='lg'
                 asChild
-                className='bg-gradient-to-r from-[#5F5AA2] to-[#355691] hover:from-[#5F5AA2]/80 hover:to-[#355691]/80 text-white border-0 px-8 py-3 rounded-full'
+                className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-8 py-3 rounded-full'
               >
                 <Link to='/contact'>
                   <Mail className='w-5 h-5 mr-2' />
@@ -409,21 +409,21 @@ const HomePage = () => {
             <div className='flex justify-center gap-6 mt-8'>
               <Link
                 to={ASSETS.social.github}
-                className='text-gray-400 hover:text-[#5F5AA2] transition-colors'
+                className='text-gray-400 hover:text-minimal-purple transition-colors'
                 target='_blank'
               >
                 <GitHubLogoIcon className='w-6 h-6' />
               </Link>
               <Link
                 to={ASSETS.social.linkedin}
-                className='text-gray-400 hover:text-[#355691] transition-colors'
+                className='text-gray-400 hover:text-minimal-blue transition-colors'
                 target='_blank'
               >
                 <LinkedInLogoIcon className='w-6 h-6' />
               </Link>
               <Link
                 to={`mailto:${ASSETS.social.email}`}
-                className='text-gray-400 hover:text-[#413E54] transition-colors'
+                className='text-gray-400 hover:text-minimal-blue transition-colors'
               >
                 <Mail className='w-6 h-6' />
               </Link>
