@@ -38,7 +38,7 @@ export const Header = () => {
         <div className='bg-white/10 backdrop-blur-lg rounded-full px-6 py-3 border border-white/20'>
           <div className='flex items-center space-x-10'>
             <Link to={'/'} className='text-white font-bold text-lg'>
-              {'<chrixs />'}
+              {'<chrixs/>'}
             </Link>
             <div className='flex space-x-6'>{NavBar}</div>
           </div>

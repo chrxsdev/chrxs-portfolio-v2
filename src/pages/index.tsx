@@ -1,16 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Mail, ExternalLink, Coffee, Download, Music, Pizza, MessageCircle, Send, Calendar } from 'lucide-react';
+import { formatDate } from '@/lib/date';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 import { ASSETS } from '@/constants/sources';
-import type { IconName } from '@/types';
+import type { IconName, ResumeResponse } from '@/types';
 import { SkillIcon } from '@/components/SkillIcon';
 import { Link } from 'react-router-dom';
+import { getResumeInfo } from '@/api/experience.api';
 
 const HomePage = () => {
   const [, setActiveProject] = useState(0);
+  const [resumeData, setResumeData] = useState<ResumeResponse>({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { experience, skills } = await getResumeInfo();
+      setResumeData({ experience, skills });
+    };
+    fetchData();
+  }, []);
 
   const technologies = [
     { name: 'React', key: 'react', color: 'from-[#5F5AA2] to-[#355691]' },
@@ -28,33 +39,6 @@ const HomePage = () => {
     { name: 'AWS', key: 'aws', color: 'from-[#413E54] to-[#5F5AA2]' },
     { name: 'Firebase', key: 'firebase', color: 'from-[#413E54] to-[#5F5AA2]' },
     { name: 'Docker', key: 'docker', color: 'from-[#5F5AA2] to-[#355691]' },
-  ];
-
-  const experiences = [
-    {
-      title: 'Senior Full Stack Engineer',
-      company: 'TechCorp',
-      period: '2022 - Present',
-      location: 'San Francisco, CA',
-    },
-    {
-      title: 'Lead Frontend Developer',
-      company: 'InnovateLab',
-      period: '2020 - 2022',
-      location: 'Remote',
-    },
-    {
-      title: 'Full Stack Developer',
-      company: 'StartupXYZ',
-      period: '2019 - 2020',
-      location: 'New York, NY',
-    },
-    {
-      title: 'Frontend Developer',
-      company: 'DigitalAgency',
-      period: '2018 - 2019',
-      location: 'Los Angeles, CA',
-    },
   ];
 
   const projects = [
@@ -226,7 +210,7 @@ const HomePage = () => {
             {technologies.map((tech) => (
               <div
                 key={tech.name}
-                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br ${tech.color} p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
+                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
               >
                 <div className='w-full h-full rounded-full bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm'>
                   <SkillIcon name={tech.key as IconName} />
@@ -241,7 +225,7 @@ const HomePage = () => {
 
       {/* Experience Section */}
       <section id='experience' className='py-32 px-6 relative z-10'>
-        <div className='max-w-4xl mx-auto'>
+        <div className='max-w-5xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Experience
           </h2>
@@ -251,49 +235,52 @@ const HomePage = () => {
             <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-minimal-purple to-minimal-blue'></div>
 
             <div className='space-y-12'>
-              {experiences.map((exp, index) => (
-                <div key={index} className='relative flex items-start gap-8'>
-                  {/* Company Logo */}
-                  <div className='relative z-10 flex-shrink-0'>
-                    <div className='w-16 h-16 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5'>
-                      <div className='w-full h-full rounded-full overflow-hidden bg-white'>
-                        <img
-                          src={`/placeholder.svg?height=64&width=64&text=${exp.company}`}
-                          alt={`${exp.company} logo`}
-                          width={64}
-                          height={64}
-                          className='w-full h-full object-cover'
-                        />
+              {resumeData.experience ? (
+                resumeData.experience.map((exp, index) => (
+                  <div key={index} className='relative flex items-start gap-8'>
+                    {/* Company Logo */}
+                    <div className='relative z-10 flex-shrink-0 mt-4'>
+                      <div className='w-16 h-16 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5'>
+                        <div className='w-full h-full rounded-full overflow-hidden bg-white'>
+                          <img
+                            src={exp.company_logo_url}
+                            alt={`${exp.company} logo`}
+                            width={64}
+                            height={64}
+                            className='w-full h-full object-cover'
+                          />
+                        </div>
                       </div>
-                    </div>
-                    {/* Timeline Dot */}
-                    <div className='absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-minimal-purple rounded-full border-4 border-black'></div>
-                  </div>
-
-                  {/* Experience Card */}
-                  <div className='flex-1 bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group'>
-                    <h3 className='text-xl font-semibold text-white mb-2'>{exp.title}</h3>
-                    <div className='flex flex-row justify-between'>
-                      <div className='flex flex-1 items-center gap-3 text-gray-400'>
-                        <span className='font-medium text-[#5F5AA2] text-lg'>{exp.company}</span>
-                        <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
-                        <span>{exp.location}</span>
-                      </div>
-                      <div className='inline-flex items-center px-3 rounded-full bg-minimal-purple/20 border border-minimal-purple/30'>
-                        <span className='text-sm text-minimal-purple font-medium'>{exp.period}</span>
-                      </div>
+                      {/* Timeline Dot */}
+                      <div className='absolute -right-5 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-minimal-purple rounded-full border-4 border-black'></div>
                     </div>
 
-                    {/* Hover Effect Line */}
-                    <div className='h-0.5 bg-gradient-to-r from-minimal-purple to-minimal-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
-                  </div>
-                </div>
-              ))}
-            </div>
+                    {/* Experience Card */}
+                    <div className='flex-1 bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group'>
+                      <h3 className='text-xl font-semibold text-white mb-2'>{exp.position}</h3>
+                      <div className='flex flex-row justify-between'>
+                        <div className='flex flex-1 items-center gap-3 text-gray-400'>
+                          <span className='font-medium text-minimal-purple text-lg'>{exp.company}</span>
+                          <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
+                          <span>
+                            {exp.location} | {exp.mode ? 'Remote' : 'On-site'}
+                          </span>
+                        </div>
+                        <div className='inline-flex items-center px-3 rounded-full bg-minimal-purple/20 border border-minimal-purple/30'>
+                          <span className='text-sm text-minimal-purple font-medium'>
+                            {formatDate(exp.from)} - {exp.current_job ? 'Present' : formatDate(exp.to)}
+                          </span>
+                        </div>
+                      </div>
 
-            {/* Timeline End Dot */}
-            <div className='absolute left-6 bottom-0 w-6 h-6 bg-gradient-to-br from-minimal-purple to-minimal-blue rounded-full border-4 border-black flex items-center justify-center'>
-              <div className='w-2 h-2 bg-white rounded-full'></div>
+                      {/* Hover Effect Line */}
+                      <div className='h-0.5 mt-2 bg-gradient-to-r from-minimal-purple to-minimal-blue scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left'></div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className='text-center text-gray-400'>No experience found...</div>
+              )}
             </div>
           </div>
         </div>
