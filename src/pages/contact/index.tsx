@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { Mail, MessageCircle, Send } from 'lucide-react';
+import { Loader, Mail, MessageCircle, Send } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,9 +11,10 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ASSETS } from '@/constants/sources';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { postContactInformation } from '@/api/experience.api';
 
 const contactFormSchema = z.object({
-  fullName: z.string().min(1, 'Full name is required').max(20, 'Full name must be at most 20 characters'),
+  fullname: z.string().min(1, 'Full name is required').max(20, 'Full name must be at most 20 characters'),
   email: z.email('Invalid email format'),
   project: z.string().optional(),
   message: z.string().min(1, 'Message is required').max(80, 'Message must be at most 80 characters'),
@@ -21,6 +23,8 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const ContactPage = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
@@ -35,8 +39,14 @@ const ContactPage = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Handle form submission here
-      console.log('Form submitted:', data);
+      const response = await postContactInformation({
+        fullname: data.fullname,
+        email: data.email,
+        message: data.message,
+        project_type: data.project ?? 'ND',
+      });
+
+      navigate(`/contact/success?status=${response.ok}`);
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -97,13 +107,13 @@ const ContactPage = () => {
                     </Label>
                     <Input
                       id='firstName'
-                      {...register('fullName')}
-                      placeholder='John Doe'
+                      {...register('fullname')}
+                      placeholder='Your cool name here'
                       className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
-                        errors.fullName ? 'border-red-500' : ''
+                        errors.fullname ? 'border-red-500' : ''
                       }`}
                     />
-                    {errors.fullName && <p className='text-red-500 text-sm mt-1'>{errors.fullName.message}</p>}
+                    {errors.fullname && <p className='text-red-500 text-sm mt-1'>{errors.fullname.message}</p>}
                   </div>
                 </div>
 
@@ -115,7 +125,7 @@ const ContactPage = () => {
                     id='email'
                     type='text'
                     {...register('email')}
-                    placeholder='john@example.com'
+                    placeholder='noregrets@email.com'
                     className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
                       errors.email ? 'border-red-500' : ''
                     }`}
@@ -156,7 +166,10 @@ const ContactPage = () => {
                   className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3 disabled:opacity-50'
                 >
                   {isSubmitting ? (
-                    'Sending...'
+                    <>
+                      <Loader className='w-4 h-4 mr-2 animate-spin' />
+                      Sending...
+                    </>
                   ) : (
                     <>
                       <Send className='w-4 h-4 mr-2' />

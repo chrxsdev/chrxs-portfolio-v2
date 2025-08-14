@@ -51,3 +51,10 @@ export interface ResumeResponse {
   skills: Skills[] | null;
   projects: Project[] | null;
 }
+
+export interface ContactRequest {
+  fullname: string;
+  email: string;
+  project_type: string;
+  message: string;
+}
