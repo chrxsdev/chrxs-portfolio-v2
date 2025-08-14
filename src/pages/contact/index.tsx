@@ -1,32 +1,40 @@
+import { Mail, MessageCircle, Send } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { ASSETS } from '@/constants/sources';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
-import { Mail, MessageCircle, Send } from 'lucide-react';
-import { useState } from 'react';
+
+const contactFormSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required').max(20, 'Full name must be at most 20 characters'),
+  email: z.email('Invalid email format'),
+  project: z.string().optional(),
+  message: z.string().min(1, 'Message is required').max(80, 'Message must be at most 80 characters'),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    project: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Handle form submission here
+      console.log('Form submitted:', data);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -76,7 +84,7 @@ const ContactPage = () => {
                 <h3 className='text-2xl font-bold text-white'>Send a Message</h3>
               </div>
 
-              <form onSubmit={handleSubmit} className='space-y-6'>
+              <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
                 <div className='grid grid-cols-1 gap-4'>
                   <div className='space-y-2'>
                     <Label htmlFor='firstName' className='text-white'>
@@ -84,12 +92,13 @@ const ContactPage = () => {
                     </Label>
                     <Input
                       id='firstName'
-                      name='firstName'
-                      value={formData.firstName}
-                      onChange={handleChange}
+                      {...register('fullName')}
                       placeholder='John Doe'
-                      className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                        errors.fullName ? 'border-red-500' : ''
+                      }`}
                     />
+                    {errors.fullName && <p className='text-red-500 text-sm mt-1'>{errors.fullName.message}</p>}
                   </div>
                 </div>
 
@@ -99,13 +108,14 @@ const ContactPage = () => {
                   </Label>
                   <Input
                     id='email'
-                    name='email'
-                    type='email'
-                    value={formData.email}
-                    onChange={handleChange}
+                    type='text'
+                    {...register('email')}
                     placeholder='john@example.com'
-                    className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
+                    className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                      errors.email ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.email && <p className='text-red-500 text-sm mt-1'>{errors.email.message}</p>}
                 </div>
 
                 <div className='space-y-2'>
@@ -114,9 +124,7 @@ const ContactPage = () => {
                   </Label>
                   <Input
                     id='project'
-                    name='project'
-                    value={formData.project}
-                    onChange={handleChange}
+                    {...register('project')}
                     placeholder='Web App, Mobile App, AI Project...'
                     className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
                   />
@@ -128,20 +136,28 @@ const ContactPage = () => {
                   </Label>
                   <Textarea
                     id='message'
-                    name='message'
-                    value={formData.message}
-                    onChange={handleChange}
+                    {...register('message')}
                     placeholder='Tell me about your vision, job offer or any specific requirements...'
-                    className='min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
+                    className={`min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                      errors.message ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.message && <p className='text-red-500 text-sm mt-1'>{errors.message.message}</p>}
                 </div>
 
                 <Button
                   type='submit'
-                  className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3'
+                  disabled={isSubmitting}
+                  className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3 disabled:opacity-50'
                 >
-                  <Send className='w-4 h-4 mr-2' />
-                  Send Message
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      <Send className='w-4 h-4 mr-2' />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
 
