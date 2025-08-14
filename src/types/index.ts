@@ -35,7 +35,19 @@ export interface Skills {
   description: string;
 }
 
+export interface Project {
+  id: number;
+  project_name: string;
+  description: string;
+  stack: string[];
+  cover_img: string;
+  github: string;
+  demo: string;
+  created_at: Date;
+}
+
 export interface ResumeResponse {
-  experience?: Experience[];
-  skills?: Skills[];
+  experience: Experience[] | null;
+  skills: Skills[] | null;
+  projects: Project[] | null;
 }

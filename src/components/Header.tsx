@@ -4,16 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 export const Header = () => {
   const { pathname } = useLocation();
 
-  const NavBar = useMemo(() => {
+  const renderNavbar = useMemo(() => {
     const isHomePage = pathname === '/';
 
     return isHomePage ? (
       <>
         <a href={'#about'} className='text-white hover:text-gray-300 transition-colors'>
           About
-        </a>
-        <a href={'#skills'} className='text-white hover:text-gray-300 transition-colors'>
-          Skills
         </a>
         <a href={'#experience'} className='text-white hover:text-gray-300 transition-colors'>
           Experience
@@ -40,7 +37,7 @@ export const Header = () => {
             <Link to={'/'} className='text-white font-bold text-lg'>
               {'<chrixs/>'}
             </Link>
-            <div className='flex space-x-6'>{NavBar}</div>
+            <div className='flex space-x-6'>{renderNavbar}</div>
           </div>
         </div>
       </nav>

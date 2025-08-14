@@ -1,75 +1,26 @@
 import { useEffect, useState } from 'react';
 import { Mail, ExternalLink, Coffee, Download, Music, Pizza, MessageCircle, Send, Calendar } from 'lucide-react';
-import { formatDate } from '@/lib/date';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
+import { formatDate } from '@/lib/date';
 import { ASSETS } from '@/constants/sources';
 import type { IconName, ResumeResponse } from '@/types';
 import { SkillIcon } from '@/components/SkillIcon';
-import { Link } from 'react-router-dom';
 import { getResumeInfo } from '@/api/experience.api';
 
 const HomePage = () => {
-  const [, setActiveProject] = useState(0);
-  const [resumeData, setResumeData] = useState<ResumeResponse>({});
+  const [resumeData, setResumeData] = useState<ResumeResponse>({} as ResumeResponse);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { experience, skills } = await getResumeInfo();
-      setResumeData({ experience, skills });
+      const { experience, skills, projects } = await getResumeInfo();
+      setResumeData({ experience, skills, projects });
     };
     fetchData();
   }, []);
-
-  const technologies = [
-    { name: 'React', key: 'react', color: 'from-[#5F5AA2] to-[#355691]' },
-    { name: 'Next.js', key: 'nextjs', color: 'from-[#413E54] to-[#30232F]' },
-    { name: 'JavaScript', key: 'javascript', color: 'from-[#355691] to-[#5F5AA2]' },
-    { name: 'TypeScript', key: 'typescript', color: 'from-[#355691] to-[#5F5AA2]' },
-    { name: 'Java', key: 'java', color: 'from-[#355691] to-[#5F5AA2]' },
-    { name: 'Node.js', key: 'nodejs', color: 'from-[#5F5AA2] to-[#413E54]' },
-    { name: 'NestJS', key: 'nestjs', color: 'from-[#5F5AA2] to-[#413E54]' },
-    { name: 'Express.js', key: 'express', color: 'from-[#5F5AA2] to-[#413E54]' },
-    { name: 'Spring Boot', key: 'spring', color: 'from-[#413E54] to-[#355691]' },
-    { name: 'PostgreSQL', key: 'postgresql', color: 'from-[#413E54] to-[#355691]' },
-    { name: 'MySQL', key: 'mysql', color: 'from-[#413E54] to-[#355691]' },
-    { name: 'MongoDB', key: 'mongodb', color: 'from-[#5F5AA2] to-[#30232F]' },
-    { name: 'AWS', key: 'aws', color: 'from-[#413E54] to-[#5F5AA2]' },
-    { name: 'Firebase', key: 'firebase', color: 'from-[#413E54] to-[#5F5AA2]' },
-    { name: 'Docker', key: 'docker', color: 'from-[#5F5AA2] to-[#355691]' },
-  ];
-
-  const projects = [
-    {
-      title: 'Neural Network Visualizer',
-      description: 'Interactive 3D visualization of neural networks with real-time training data',
-      image: '/placeholder.svg?height=300&width=500',
-      tech: ['Three.js', 'React', 'WebGL', 'TensorFlow.js'],
-      color: 'from-[#5F5AA2] to-[#355691]',
-      github: 'https://github.com',
-      live: 'https://neural-viz.com',
-    },
-    {
-      title: 'Quantum Code Editor',
-      description: 'Revolutionary code editor with AI-powered suggestions and quantum computing support',
-      image: '/placeholder.svg?height=300&width=500',
-      tech: ['Electron', 'Monaco Editor', 'AI/ML', 'Rust'],
-      color: 'from-[#355691] to-[#413E54]',
-      github: 'https://github.com',
-      live: 'https://quantum-editor.com',
-    },
-    {
-      title: 'Holographic Dashboard',
-      description: 'AR/VR dashboard for data visualization with gesture controls',
-      image: '/placeholder.svg?height=300&width=500',
-      tech: ['WebXR', 'A-Frame', 'D3.js', 'WebRTC'],
-      color: 'from-[#413E54] to-[#3F4045]',
-      github: 'https://github.com',
-      live: 'https://holo-dash.com',
-    },
-  ];
 
   return (
     <>
@@ -199,7 +150,7 @@ const HomePage = () => {
       </section>
 
       {/* Skills Section */}
-      <section id='skills' className='py-32 px-6 relative z-10'>
+      <section id='skills' className='py-20 px-6 relative z-10'>
         <div className='max-w-6xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             Skills & Expertise
@@ -207,18 +158,22 @@ const HomePage = () => {
 
           {/* Technology Circles */}
           <div className='flex flex-wrap justify-center gap-6 mb-16 p-4'>
-            {technologies.map((tech) => (
-              <div
-                key={tech.name}
-                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
-              >
-                <div className='w-full h-full rounded-full bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm'>
-                  <SkillIcon name={tech.key as IconName} />
-                  <div className='text-xs text-white font-medium text-center leading-tight'>{tech.name}</div>
+            {resumeData.skills ? (
+              resumeData.skills.map((tech) => (
+                <div
+                  key={tech.id}
+                  className={`group relative w-28 h-28 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
+                >
+                  <div className='w-full h-full rounded-full bg-black/80 flex flex-col items-center justify-center backdrop-blur-sm'>
+                    <SkillIcon name={tech.skill as IconName} />
+                    <div className='text-xs text-white font-medium text-center leading-6'>{tech.description}</div>
+                  </div>
+                  <div className='absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 </div>
-                <div className='absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-              </div>
-            ))}
+              ))
+            ) : (
+              <div className='flex items-center justify-center w-full h-full text-gray-400'>No skills found...</div>
+            )}
           </div>
         </div>
       </section>
@@ -232,7 +187,9 @@ const HomePage = () => {
 
           <div className='relative'>
             {/* Timeline Line */}
-            <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-minimal-purple to-minimal-blue'></div>
+            {resumeData.experience && (
+              <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-minimal-purple to-minimal-blue'></div>
+            )}
 
             <div className='space-y-12'>
               {resumeData.experience ? (
@@ -262,7 +219,7 @@ const HomePage = () => {
                         <div className='flex flex-1 items-center gap-3 text-gray-400'>
                           <span className='font-medium text-minimal-purple text-lg'>{exp.company}</span>
                           <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
-                          <span>
+                          <span className='text-sm'>
                             {exp.location} | {exp.mode ? 'Remote' : 'On-site'}
                           </span>
                         </div>
@@ -290,57 +247,60 @@ const HomePage = () => {
       <section id='projects' className='py-32 px-6 relative z-10'>
         <div className='max-w-7xl mx-auto'>
           <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
-            Featured Projects
+            Side Projects
           </h2>
 
-          <div className='grid lg:grid-cols-3 gap-8'>
-            {projects.map((project, index) => (
-              <div
-                key={project.title}
-                className='group relative bg-white/5 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105'
-                onMouseEnter={() => setActiveProject(index)}
-              >
-                <div className='aspect-video overflow-hidden'>
-                  <img
-                    src={project.image || '/placeholder.svg'}
-                    alt={project.title}
-                    width={500}
-                    height={300}
-                    className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
-                  />
-                </div>
-
+          <div className='flex flex-wrap justify-center gap-8'>
+            {resumeData.projects ? (
+              resumeData.projects.map((project) => (
                 <div
-                  className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
-                />
-
-                <div className='p-6 relative z-10'>
-                  {' '}
-                  {/* Added relative z-10 here */}
-                  <h3 className='text-xl font-bold mb-2 text-white'>{project.title}</h3>
-                  <p className='text-gray-400 mb-4 text-sm leading-relaxed'>{project.description}</p>
-                  <div className='flex flex-wrap gap-2 mb-4'>
-                    {project.tech.map((tech) => (
-                      <Badge key={tech} variant='secondary' className='bg-white/10 text-white border-0 text-xs'>
-                        {tech}
-                      </Badge>
-                    ))}
+                  key={project.id}
+                  className='group relative bg-white/5 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] max-w-md'
+                >
+                  <div className='aspect-video overflow-hidden'>
+                    <img
+                      src={project.cover_img}
+                      alt={project.project_name}
+                      width={500}
+                      height={300}
+                      className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                    />
                   </div>
-                  <div className='flex gap-3'>
-                    <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
-                      <a href={project.github} target='_blank'>
-                        <GitHubLogoIcon className='w-4 h-4' />
-                      </a>
-                    </Button>
-                    <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
-                      <a href={project.live} target='_blank'>
-                        <ExternalLink className='w-4 h-4' />
-                      </a>
-                    </Button>
+
+                  <div className='absolute inset-0 bg-gradient-to-t from-minimal-purple to-minimal-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300' />
+
+                  <div className='p-6 relative z-10'>
+                    <h3 className='text-xl font-bold mb-2 text-white'>{project.project_name}</h3>
+                    <p className='text-gray-400 mb-4 text-sm leading-relaxed'>{project.description}</p>
+                    <div className='flex flex-wrap gap-2'>
+                      {project.stack.map((tech) => (
+                        <Badge key={tech} variant='secondary' className='bg-white/10 text-white border-0 text-xs'>
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  <div className='flex gap-2 justify-end relative z-10 p-4'>
+                    {project.github && (
+                      <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
+                        <a href={project.github} target='_blank'>
+                          <GitHubLogoIcon className='w-4 h-4' /> Github
+                        </a>
+                      </Button>
+                    )}
+                    {project.demo && (
+                      <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
+                        <a href={project.demo} target='_blank'>
+                          <ExternalLink className='w-4 h-4' /> Demo Live
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <div className='text-center text-gray-400'>No projects found...</div>
+            )}
           </div>
         </div>
       </section>
