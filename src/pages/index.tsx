@@ -214,19 +214,18 @@ const HomePage = () => {
 
                     {/* Experience Card */}
                     <div className='flex-1 bg-white/5 rounded-xl p-6 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group'>
-                      <h3 className='text-xl font-semibold text-white mb-2'>{exp.position}</h3>
-                      <div className='flex flex-row justify-between'>
-                        <div className='flex flex-1 items-center gap-3 text-gray-400'>
-                          <span className='font-medium text-minimal-purple text-lg'>{exp.company}</span>
-                          <span className='w-1 h-1 bg-gray-400 rounded-full'></span>
-                          <span className='text-sm'>
+                      <div className='flex flex-col space-y-1'>
+                        <h3 className='text-xl font-semibold text-white'>{exp.position}</h3>
+                        <div className='font-medium text-minimal-purple text-lg'>{exp.company}</div>
+                        <div className='flex flex-col md:flex-row md:justify-between md:items-center'>
+                          <div className='text-sm text-gray-400'>
                             {exp.location} | {exp.mode ? 'Remote' : 'On-site'}
-                          </span>
-                        </div>
-                        <div className='inline-flex items-center px-3 rounded-full bg-minimal-purple/20 border border-minimal-purple/30'>
-                          <span className='text-sm text-minimal-purple font-medium'>
-                            {formatDate(exp.from)} - {exp.current_job ? 'Present' : formatDate(exp.to)}
-                          </span>
+                          </div>
+                          <div className='inline-flex px-3 py-1 mt-3 md:mt-0 rounded-full bg-minimal-purple/20 border border-minimal-purple/30 w-fit'>
+                            <span className='text-sm text-minimal-purple font-medium'>
+                              {formatDate(exp.from)} - {exp.current_job ? 'Present' : formatDate(exp.to)}
+                            </span>
+                          </div>
                         </div>
                       </div>
 

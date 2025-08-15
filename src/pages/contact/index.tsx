@@ -73,21 +73,32 @@ const ContactPage = () => {
                   <Mail className='w-6 h-6 text-minimal-purple' />
                   <div>
                     <div className='text-white font-medium'>Email</div>
-                    <div className='text-gray-400'>{ASSETS.social.email}</div>
+                    <a href={`mailto:${ASSETS.social.email}`} className='text-gray-400'>
+                      {ASSETS.social.email}
+                    </a>
                   </div>
                 </div>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
                   <LinkedInLogoIcon color='#5F5AA2' width={23} height={23} />
                   <div>
                     <div className='text-white font-medium'>LinkedIn</div>
-                    <div className='text-gray-400'>{ASSETS.social.linkedin.split('/').pop()}</div>
+                    <a
+                      className='text-gray-400'
+                      href={ASSETS.social.linkedin}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      {ASSETS.social.linkedin.split('/').pop()}
+                    </a>
                   </div>
                 </div>
                 <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
                   <GitHubLogoIcon className='w-6 h-6 text-minimal-purple' />
                   <div>
                     <div className='text-white font-medium'>GitHub</div>
-                    <div className='text-gray-400'>{ASSETS.social.github.split('/').pop()}</div>
+                    <a className='text-gray-400' href={ASSETS.social.github} target='_blank' rel='noopener noreferrer'>
+                      {ASSETS.social.github.split('/').pop()}
+                    </a>
                   </div>
                 </div>
               </div>
