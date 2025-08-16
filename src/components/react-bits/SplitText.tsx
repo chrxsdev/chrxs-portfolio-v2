@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
+import { useFontLoaded } from '@/hooks/useFontLoaded';
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
@@ -37,9 +38,12 @@ const SplitText: React.FC<SplitTextProps> = ({
   const ref = useRef<HTMLParagraphElement>(null);
   const animationCompletedRef = useRef(false);
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  
+  // Use the custom hook to check if fonts are loaded
+  const fontsLoaded = useFontLoaded(2000);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !ref.current || !text) return;
+    if (typeof window === 'undefined' || !ref.current || !text || !fontsLoaded) return;
 
     const el = ref.current;
 
@@ -134,15 +138,16 @@ const SplitText: React.FC<SplitTextProps> = ({
         splitter.revert();
       }
     };
-  }, [text, delay, duration, ease, splitType, from, to, threshold, rootMargin, onLetterAnimationComplete]);
+  }, [text, delay, duration, ease, splitType, from, to, threshold, rootMargin, onLetterAnimationComplete, fontsLoaded]);
 
   return (
     <p
       ref={ref}
-      className={`split-parent overflow-hidden inline-block whitespace-normal ${className}`}
+      className={`split-parent overflow-hidden inline-block whitespace-normal ${className} ${fontsLoaded ? 'opacity-100' : 'opacity-0'}`}
       style={{
         textAlign,
         wordWrap: 'break-word',
+        transition: 'opacity 0.2s ease-in-out',
       }}
     >
       {text}
