@@ -1,5 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Mail, ExternalLink, Coffee, Download, Music, Pizza, MessageCircle, Send, Calendar } from 'lucide-react';
+import {
+  Mail,
+  ExternalLink,
+  Coffee,
+  Download,
+  Music,
+  Pizza,
+  MessageCircle,
+  Send,
+  Calendar,
+  Loader,
+} from 'lucide-react';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -14,7 +25,8 @@ import { useFile } from '@/hooks/useFile';
 
 const HomePage = () => {
   const [resumeData, setResumeData] = useState<ResumeResponse>({} as ResumeResponse);
-  const { downloadFile } = useFile();
+
+  const { downloadFile, isLoading } = useFile();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,8 +81,17 @@ const HomePage = () => {
               className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
               onClick={() => downloadResume(ASSETS.resume.en)}
             >
-              <Download className='w-4 h-4 mr-2' />
-              Download CV
+              {isLoading ? (
+                <>
+                  <Loader className='w-4 h-4 mr-2 animate-spin' />
+                  Processing...
+                </>
+              ) : (
+                <>
+                  <Download className='w-4 h-4 mr-2' />
+                  Download CV
+                </>
+              )}
             </Button>
           </div>
 
