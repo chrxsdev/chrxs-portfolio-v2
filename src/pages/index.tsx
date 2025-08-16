@@ -292,7 +292,7 @@ const HomePage = () => {
 
           <AnimatedContent
             distance={150}
-            direction='horizontal'
+            direction='vertical'
             reverse={false}
             duration={1.2}
             ease='bounce.out'
