@@ -10,9 +10,11 @@ import { ASSETS } from '@/constants/sources';
 import type { IconName, ResumeResponse } from '@/types';
 import { SkillIcon } from '@/components/SkillIcon';
 import { getResumeInfo } from '@/api/experience.api';
+import { useFile } from '@/hooks/useFile';
 
 const HomePage = () => {
   const [resumeData, setResumeData] = useState<ResumeResponse>({} as ResumeResponse);
+  const { downloadFile } = useFile();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +23,10 @@ const HomePage = () => {
     };
     fetchData();
   }, []);
+
+  const downloadResume = async (fileUrl: string) => {
+    await downloadFile(fileUrl);
+  };
 
   return (
     <>
@@ -61,7 +67,7 @@ const HomePage = () => {
             <Button
               size='lg'
               className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
-              onClick={() => console.log('here option to download CV')}
+              onClick={() => downloadResume(ASSETS.resume.en)}
             >
               <Download className='w-4 h-4 mr-2' />
               Download CV

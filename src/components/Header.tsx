@@ -24,7 +24,7 @@ export const Header = () => {
       </>
     ) : (
       <Link to={'/'} className='text-white hover:text-gray-300 transition-colors'>
-        Back to Home
+        Home
       </Link>
     );
   }, [pathname]);

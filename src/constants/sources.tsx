@@ -5,7 +5,10 @@ interface Assets {
     github: string;
     email: string;
   };
-  resume: string;
+  resume: {
+    es: string;
+    en: string;
+  };
 }
 
 export const ASSETS: Assets = {
@@ -15,5 +18,8 @@ export const ASSETS: Assets = {
     github: 'https://github.com/chrxsdev',
     email: 'cristhian.martinezlara@gmail.com',
   },
-  resume: ''
+  resume: {
+    es: 'https://hirperwidquunyjvtkjb.supabase.co/storage/v1/object/public/personal/assets/resume/CV_Cristhian_Martinez_es.pdf',
+    en: 'https://hirperwidquunyjvtkjb.supabase.co/storage/v1/object/public/personal/assets/resume/CV_Cristhian_Martinez_en.pdf',
+  },
 };
