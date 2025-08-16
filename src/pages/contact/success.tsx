@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, XCircle } from 'lucide-react';
+
+import Lottie from 'react-lottie';
+import successAnimation from '@/assets/lottie/success-rocket.json';
+import failAnimation from '@/assets/lottie/fail.json';
 
 const SuccessPage = () => {
   const navigate = useNavigate();
@@ -26,16 +29,34 @@ const SuccessPage = () => {
       <div className='text-center max-w-lg'>
         {isSuccess ? (
           <>
-            <CheckCircle2 className='w-16 h-16 text-green-500 mx-auto mb-6' />
-            <h1 className='text-3xl font-bold text-white mb-4'>Message Sent Successfully!</h1>
-            <p className='text-gray-300 mb-8'>
-              Thank you for reaching out! I'll get back to you as soon as possible.
-            </p>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: successAnimation,
+                rendererSettings: {
+                  scaleMode: 'contain',
+                },
+              }}
+              height={400}
+              width={500}
+            />
+            <p className='text-gray-300 mb-8'>Thank you for reaching out! I'll get back to you as soon as possible.</p>
           </>
         ) : (
           <>
-            <XCircle className='w-16 h-16 text-red-500 mx-auto mb-6' />
-            <h1 className='text-3xl font-bold text-white mb-4'>Message Not Sent</h1>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: failAnimation,
+                rendererSettings: {
+                  scaleMode: 'contain',
+                },
+              }}
+              height={400}
+              width={500}
+            />
             <p className='text-gray-300 mb-8'>
               Sorry, there was an error sending your message. Please try again or contact me directly via email.
             </p>

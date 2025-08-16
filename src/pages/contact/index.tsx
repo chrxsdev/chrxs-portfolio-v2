@@ -174,7 +174,7 @@ const ContactPage = () => {
                 <Button
                   type='submit'
                   disabled={isSubmitting}
-                  className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3 disabled:opacity-50'
+                  className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3 disabled:opacity-50 cursor-pointer'
                 >
                   {isSubmitting ? (
                     <>
