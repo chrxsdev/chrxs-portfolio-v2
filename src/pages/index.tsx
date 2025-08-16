@@ -22,6 +22,8 @@ import type { IconName, ResumeResponse } from '@/types';
 import { SkillIcon } from '@/components/SkillIcon';
 import { getResumeInfo } from '@/api/experience.api';
 import { useFile } from '@/hooks/useFile';
+import SplitText from '@/components/react-bits/SplitText';
+import AnimatedContent from '@/components/react-bits/AnimatedContent';
 
 const HomePage = () => {
   const [resumeData, setResumeData] = useState<ResumeResponse>({} as ResumeResponse);
@@ -62,13 +64,25 @@ const HomePage = () => {
             </div>
           </div>
 
-          <h1 className='text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white via-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+          <h1 className='text-6xl md:text-8xl font-black mb-2 bg-gradient-to-r from-white via-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
             chrxs
           </h1>
 
-          <div className='text-xl md:text-2xl text-gray-300 mb-8 font-light'>
+          <div className='text-xl md:text-2xl text-gray-300 font-light flex justify-center items-center'>
             <span className='inline-block animate-pulse'>{'>'}</span>
-            <span className='ml-2'>Software Fullstack Developer</span>
+            <SplitText
+              text='Software Fullstack Developer'
+              className='ml-2 leading-14'
+              delay={70}
+              duration={2}
+              ease='elastic.out(1,0.3)'
+              splitType='words'
+              from={{ color: '#5f5aa2', opacity: 0, y: 40 }}
+              to={{ color: 'white', opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin='-100px'
+              textAlign='center'
+            />
           </div>
 
           <p className='text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed'>
@@ -276,58 +290,71 @@ const HomePage = () => {
             Side Projects
           </h2>
 
-          <div className='flex flex-wrap justify-center gap-8'>
-            {resumeData.projects ? (
-              resumeData.projects.map((project) => (
-                <div
-                  key={project.id}
-                  className='group relative bg-white/5 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] max-w-md'
-                >
-                  <div className='aspect-video overflow-hidden'>
-                    <img
-                      src={project.cover_img}
-                      alt={project.project_name}
-                      width={500}
-                      height={300}
-                      className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
-                    />
-                  </div>
+          <AnimatedContent
+            distance={150}
+            direction='horizontal'
+            reverse={false}
+            duration={1.2}
+            ease='bounce.out'
+            initialOpacity={0.2}
+            animateOpacity
+            scale={1.1}
+            threshold={0.2}
+            delay={0.3}
+          >
+            <div className='flex flex-wrap justify-center gap-8'>
+              {resumeData.projects ? (
+                resumeData.projects.map((project) => (
+                  <div
+                    key={project.id}
+                    className='group relative bg-white/5 rounded-2xl overflow-hidden backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-105 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] max-w-md'
+                  >
+                    <div className='aspect-video overflow-hidden'>
+                      <img
+                        src={project.cover_img}
+                        alt={project.project_name}
+                        width={500}
+                        height={300}
+                        className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500'
+                      />
+                    </div>
 
-                  <div className='absolute inset-0 bg-gradient-to-t from-minimal-purple to-minimal-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300' />
+                    <div className='absolute inset-0 bg-gradient-to-t from-minimal-purple to-minimal-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300' />
 
-                  <div className='p-6 relative z-10'>
-                    <h3 className='text-xl font-bold mb-2 text-white'>{project.project_name}</h3>
-                    <p className='text-gray-400 mb-4 text-sm leading-relaxed'>{project.description}</p>
-                    <div className='flex flex-wrap gap-2'>
-                      {project.stack.map((tech) => (
-                        <Badge key={tech} variant='secondary' className='bg-white/10 text-white border-0 text-xs'>
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div className='p-6 relative z-10'>
+                      <h3 className='text-xl font-bold mb-2 text-white'>{project.project_name}</h3>
+                      <p className='text-gray-400 mb-4 text-sm leading-relaxed'>{project.description}</p>
+                      <div className='flex flex-wrap gap-2'>
+                        {project.stack.map((tech) => (
+                          <Badge key={tech} variant='secondary' className='bg-white/10 text-white border-0 text-xs'>
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div className='flex gap-2 justify-end relative z-10 p-4'>
+                      {project.github && (
+                        <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
+                          <a href={project.github} target='_blank'>
+                            <GitHubLogoIcon className='w-4 h-4' /> Github
+                          </a>
+                        </Button>
+                      )}
+                      {project.demo && (
+                        <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
+                          <a href={project.demo} target='_blank'>
+                            <ExternalLink className='w-4 h-4' /> Demo Live
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
-                  <div className='flex gap-2 justify-end relative z-10 p-4'>
-                    {project.github && (
-                      <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
-                        <a href={project.github} target='_blank'>
-                          <GitHubLogoIcon className='w-4 h-4' /> Github
-                        </a>
-                      </Button>
-                    )}
-                    {project.demo && (
-                      <Button size='sm' variant='ghost' asChild className='text-white hover:bg-white/10 p-2'>
-                        <a href={project.demo} target='_blank'>
-                          <ExternalLink className='w-4 h-4' /> Demo Live
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className='text-center text-gray-400'>No projects found...</div>
-            )}
-          </div>
+                ))
+              ) : (
+                <div className='text-center text-gray-400'>No projects found...</div>
+              )}
+            </div>
+          </AnimatedContent>
         </div>
       </section>
 
