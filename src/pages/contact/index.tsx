@@ -80,7 +80,7 @@ const ContactPage = () => {
               height={400}
               width={500}
             />
-            <p className='text-gray-300 mb-8'>Thank you for reaching out! I'll get back to you as soon as possible.</p>
+            <p className='text-muted-foreground mb-8'>Thank you for reaching out! I'll get back to you as soon as possible.</p>
           </>
         )}
         {contactFailed && (
@@ -97,7 +97,7 @@ const ContactPage = () => {
               height={400}
               width={500}
             />
-            <p className='text-gray-300 mb-8'>
+            <p className='text-muted-foreground mb-8'>
               Sorry, there was an error sending your message. Please try again or contact me directly via email.
             </p>
           </>
@@ -121,36 +121,36 @@ const ContactPage = () => {
 
         <div className='grid md:grid-cols-2 gap-12'>
           <div>
-            <h3 className='text-2xl font-semibold mb-6 text-white'>Ready to collaborate?</h3>
-            <p className='text-gray-300 mb-8 leading-relaxed'>
+            <h3 className='text-2xl font-semibold mb-6 text-foreground'>Ready to collaborate?</h3>
+            <p className='text-muted-foreground mb-8 leading-relaxed'>
               I'm always excited to work on innovative projects that push the boundaries of what's possible. Let's turn
               your vision into reality.
             </p>
 
             <div className='space-y-4'>
-              <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
+              <div className='flex items-center gap-4 p-4 bg-card/30 backdrop-blur-sm rounded-lg border border-border'>
                 <Mail className='w-6 h-6 text-minimal-purple' />
                 <div>
-                  <div className='text-white font-medium'>Email</div>
-                  <a href={`mailto:${ASSETS.social.email}`} className='text-gray-400'>
+                  <div className='text-foreground font-medium'>Email</div>
+                  <a href={`mailto:${ASSETS.social.email}`} className='text-muted-foreground'>
                     {ASSETS.social.email}
                   </a>
                 </div>
               </div>
-              <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
+              <div className='flex items-center gap-4 p-4 bg-card/30 backdrop-blur-sm rounded-lg border border-border'>
                 <LinkedInLogoIcon color='#5F5AA2' width={23} height={23} />
                 <div>
-                  <div className='text-white font-medium'>LinkedIn</div>
-                  <a className='text-gray-400' href={ASSETS.social.linkedin} target='_blank' rel='noopener noreferrer'>
+                  <div className='text-foreground font-medium'>LinkedIn</div>
+                  <a className='text-muted-foreground' href={ASSETS.social.linkedin} target='_blank' rel='noopener noreferrer'>
                     {ASSETS.social.linkedin.split('/').pop()}
                   </a>
                 </div>
               </div>
-              <div className='flex items-center gap-4 p-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10'>
+              <div className='flex items-center gap-4 p-4 bg-card/30 backdrop-blur-sm rounded-lg border border-border'>
                 <GitHubLogoIcon className='w-6 h-6 text-minimal-purple' />
                 <div>
-                  <div className='text-white font-medium'>GitHub</div>
-                  <a className='text-gray-400' href={ASSETS.social.github} target='_blank' rel='noopener noreferrer'>
+                  <div className='text-foreground font-medium'>GitHub</div>
+                  <a className='text-muted-foreground' href={ASSETS.social.github} target='_blank' rel='noopener noreferrer'>
                     {ASSETS.social.github.split('/').pop()}
                   </a>
                 </div>
@@ -158,23 +158,23 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className='bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10'>
+          <div className='bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-border'>
             <div className='flex items-center gap-3 mb-6'>
               <MessageCircle className='w-6 h-6 text-minimal-purple' />
-              <h3 className='text-2xl font-bold text-white'>Send a Message</h3>
+              <h3 className='text-2xl font-bold text-foreground'>Send a Message</h3>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
               <div className='grid grid-cols-1 gap-4'>
                 <div className='space-y-2'>
-                  <Label htmlFor='firstName' className='text-white'>
+                  <Label htmlFor='firstName' className='text-foreground'>
                     Fullname *
                   </Label>
                   <Input
                     id='firstName'
                     {...register('fullname')}
                     placeholder='Your cool name here'
-                    className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                    className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
                       errors.fullname ? 'border-red-500' : ''
                     }`}
                   />
@@ -183,7 +183,7 @@ const ContactPage = () => {
               </div>
 
               <div className='space-y-2'>
-                <Label htmlFor='email' className='text-white'>
+                <Label htmlFor='email' className='text-foreground'>
                   Email *
                 </Label>
                 <Input
@@ -191,7 +191,7 @@ const ContactPage = () => {
                   type='text'
                   {...register('email')}
                   placeholder='noregrets@email.com'
-                  className={`bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                  className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
                     errors.email ? 'border-red-500' : ''
                   }`}
                 />
@@ -199,26 +199,26 @@ const ContactPage = () => {
               </div>
 
               <div className='space-y-2'>
-                <Label htmlFor='project' className='text-white'>
+                <Label htmlFor='project' className='text-foreground'>
                   Project Type
                 </Label>
                 <Input
                   id='project'
                   {...register('project')}
                   placeholder='Web App, Mobile App, AI Project...'
-                  className='bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple'
+                  className='bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple'
                 />
               </div>
 
               <div className='space-y-2'>
-                <Label htmlFor='message' className='text-white'>
+                <Label htmlFor='message' className='text-foreground'>
                   Message *
                 </Label>
                 <Textarea
                   id='message'
                   {...register('message')}
                   placeholder='Tell me about your vision, job offer or any specific requirements...'
-                  className={`min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-minimal-purple ${
+                  className={`min-h-[120px] bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
                     errors.message ? 'border-red-500' : ''
                   }`}
                 />
@@ -244,8 +244,8 @@ const ContactPage = () => {
               </Button>
             </form>
 
-            <div className='mt-6 pt-6 border-t border-white/10'>
-              <p className='text-gray-400 text-sm text-center'>
+            <div className='mt-6 pt-6 border-t border-border'>
+              <p className='text-muted-foreground text-sm text-center'>
                 Prefer a quick chat? Feel free to reach out directly via email or LinkedIn.
               </p>
             </div>

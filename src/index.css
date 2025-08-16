@@ -132,3 +132,26 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Add smooth transitions for theme switching - exclude width/transform animations */
+*: {
+  transition: background-color 300ms, border-color 300ms, color 300ms;
+}
+
+/* Ensure progress animations work properly */
+.progress-animation {
+  transition: width 500ms ease-out !important;
+}
+
+/* Ensure the root element starts with dark theme by default */
+html {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
