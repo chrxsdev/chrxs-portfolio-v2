@@ -30,7 +30,6 @@
 	1. [First specific change] - Purpose: [why]
 	2. [Second specific change] - Purpose: [why]
 	3. Do you approve this plan? I'll proceed with Edit [number] after your confirmation.
-	4. WAIT for explicit user confirmation before making ANY edits when user ok edit [number]
             
 ### Execution and Follow-up
 	- After each individual edit, clearly indicate progress:
@@ -122,7 +121,6 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
 ### State Management
 - Use **React hooks** for local state (`useState`, `useEffect`)
 - Implement **custom hooks** for reusable logic
-- Use **Context API** for global state (theme, user preferences)
 - Follow **proper hook dependencies** in useEffect arrays
 
 ### Component Patterns

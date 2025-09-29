@@ -16,10 +16,10 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
             </h2>
             <div className='space-y-6 text-muted-foreground leading-relaxed'>
               <p>
-                I'm a creative developer who lives at the intersection of art and technology. With 1.5+ years building
-                scalable React.js, TypeScript, and React Native applications with full-stack capabilities in NestJS
-                and Spring Boot. Proven track record delivering high-performance solutions through Agile
-                collaboration, API integration, and delivering high-performance applications.
+                I'm a Fullstack Developer with 1.5+ years building scalable React.js, TypeScript, and React Native
+                applications with full-stack capabilities in NestJS and Spring Boot. Proven track record delivering
+                high-performance solutions through Agile collaboration, API integration, and delivering high-performance
+                applications.
               </p>
               <p>
                 When I'm not coding, you'll find me experimenting trying to connect technology with music or exploring
