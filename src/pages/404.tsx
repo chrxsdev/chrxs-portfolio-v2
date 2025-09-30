@@ -7,20 +7,22 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <section className='py-20 px-6 relative z-10'>
-      <div className='text-center mx-auto max-w-lg'>
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: failAnimation,
-            rendererSettings: {
-              scaleMode: 'contain',
-            },
-          }}
-          height={400}
-          width={500}
-        />
+    <section className='w-lvw py-20 px-6 relative z-10'>
+      <div className='text-center mx-auto md:max-w-lg min-w-full'>
+        <div className='w-full flex justify-center'>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: failAnimation,
+              rendererSettings: {
+                scaleMode: 'contain',
+              },
+            }}
+            height={400}
+            width={500}
+          />
+        </div>
         <p className='text-foreground mb-8'>Sorry, the page you are looking for does not exist.</p>
         <Button
           onClick={() => navigate('/')}
