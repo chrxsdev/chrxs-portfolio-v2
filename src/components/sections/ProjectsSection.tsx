@@ -14,7 +14,7 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
     <section id='projects' className='py-32 px-3 sm:px-6 relative z-10'>
       <div className='max-w-7xl mx-auto'>
         <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
-          Side Projects
+          Projects
         </h2>
 
         <AnimatedContent

@@ -10,11 +10,11 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
     <section id='about' className='py-36 px-3 sm:px-6 relative z-10'>
       <div className='max-w-6xl mx-auto'>
         <div className='grid md:grid-cols-2 gap-16 items-center'>
-          <div>
-            <h2 className='text-4xl font-bold mb-8 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+          <div className='mx-auto'>
+            <h2 className='text-4xl md:text-left text-center font-bold mb-8 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
               About Me
             </h2>
-            <div className='space-y-6 text-muted-foreground leading-relaxed'>
+            <div className='mx-auto md:w-full w-[90%] space-y-6 text-muted-foreground leading-relaxed'>
               <p>
                 I'm a Fullstack Developer with 1.5+ years building scalable React.js, TypeScript, and React Native
                 applications with full-stack capabilities in NestJS and Spring Boot. Proven track record delivering
@@ -27,15 +27,17 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
               </p>
               <div className='flex items-center gap-4 pt-4'>
                 <h2 className='text-xl font-bold bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
-                  Fun facts:
+                  Fun facts
                 </h2>
+              </div>
+              <div className='flex flex-col sm:flex-row gap-4'>
                 <div className='flex items-center gap-2 text-foreground'>
                   <Coffee className='w-5 h-5 text-yellow-500' />
                   <span>Coffee Addict</span>
                 </div>
                 <div className='flex items-center gap-2 text-foreground'>
                   <Music className='w-5 h-5 text-red-500' />
-                  <span>Beatmaker</span>
+                  <span>Music (my another passion)</span>
                 </div>
                 <div className='flex items-center gap-2 text-foreground'>
                   <Pizza className='w-5 h-5 text-blue-500' />

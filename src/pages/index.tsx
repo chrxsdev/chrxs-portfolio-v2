@@ -64,7 +64,7 @@ const HomePage = () => {
           <div className='text-lg sm:text-xl md:text-2xl text-muted-foreground font-light flex justify-center items-center flex-wrap'>
             <span className='inline-block animate-pulse'>{'>'}</span>
             <SplitText
-              text='Software Fullstack Developer'
+              text='Software Developer'
               className='ml-2 leading-14'
               delay={70}
               duration={2}
@@ -79,7 +79,7 @@ const HomePage = () => {
           </div>
 
           <p className='text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed px-2'>
-            I build impossible things with code, turning wild ideas into digital reality.
+            I turn ideas into digital reality.
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4 justify-center items-center px-2'>
