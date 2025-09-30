@@ -7,7 +7,7 @@ interface AboutSectionProps {
 
 export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionProps) => {
   return (
-    <section id='about' className='py-36 px-6 relative z-10'>
+    <section id='about' className='py-36 px-3 sm:px-6 relative z-10'>
       <div className='max-w-6xl mx-auto'>
         <div className='grid md:grid-cols-2 gap-16 items-center'>
           <div>

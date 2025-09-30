@@ -16,7 +16,7 @@ const AppLayout = () => {
         <section className='grid grid-rows-[auto_1fr_auto] min-h-[100dvh]'>
           <Header />
 
-          <main className='mt-20'>
+          <main className='mt-16 md:mt-20 lg:mt-20 md:px-4 lg:px-2'>
             <Outlet />
           </main>
 

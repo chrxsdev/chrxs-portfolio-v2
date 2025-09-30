@@ -6,7 +6,7 @@ import { ASSETS } from '@/constants/sources';
 
 export const CallToActionSection = () => {
   return (
-    <section id='contact' className='py-32 px-6 relative z-10'>
+    <section id='contact' className='py-32 px-3 sm:px-6 relative z-10'>
       <div className='max-w-4xl mx-auto text-center'>
         <div className='relative py-20 z-10'>
           <h2 className='text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r leading-16 from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>

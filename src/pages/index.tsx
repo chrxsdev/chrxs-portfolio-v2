@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  Mail,
-  Download,
-  Loader,
-} from 'lucide-react';
+import { Mail, Download, Loader } from 'lucide-react';
 import { GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -41,10 +37,11 @@ const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className='min-h-screen flex items-center justify-center relative z-10 px-6'>
-        <div className={`text-center transition-all duration-2000`}>
-          <div className='mb-8 relative'>
-            <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-minimal-purple to-minimal-blue p-1 animate-pulse'>
+      <section className='flex min-h-screen justify-center items-center relative z-10 px-4 sm:px-6 lg:px-8'>
+        <div className='w-full max-w-4xl mx-auto'>
+          <div className={`text-center transition-all duration-2000`}>
+            <div className='mb-8 relative'>
+              <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-minimal-purple to-minimal-blue p-1 animate-pulse'>
               <div className='w-full h-full rounded-full overflow-hidden bg-black'>
                 <img
                   src={ASSETS.profile}
@@ -60,11 +57,11 @@ const HomePage = () => {
             </div>
           </div>
 
-          <h1 className='text-6xl md:text-8xl font-black mb-2 bg-gradient-to-r from-foreground via-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+          <h1 className='text-4xl sm:text-6xl md:text-8xl font-black mb-2 bg-gradient-to-r from-foreground via-minimal-purple to-minimal-blue bg-clip-text text-transparent break-words'>
             chrxs
           </h1>
 
-          <div className='text-xl md:text-2xl text-muted-foreground font-light flex justify-center items-center'>
+          <div className='text-lg sm:text-xl md:text-2xl text-muted-foreground font-light flex justify-center items-center flex-wrap'>
             <span className='inline-block animate-pulse'>{'>'}</span>
             <SplitText
               text='Software Fullstack Developer'
@@ -81,14 +78,14 @@ const HomePage = () => {
             />
           </div>
 
-          <p className='text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed'>
+          <p className='text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed px-2'>
             I build impossible things with code, turning wild ideas into digital reality.
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+          <div className='flex flex-col sm:flex-row gap-4 justify-center items-center px-2'>
             <Button
               size='lg'
-              className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-8 py-3 rounded-full cursor-pointer'
+              className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-6 sm:px-8 py-3 rounded-full cursor-pointer w-full sm:w-auto max-w-xs'
               onClick={() => downloadResume(ASSETS.resume.en)}
             >
               {isLoading ? (
@@ -105,7 +102,7 @@ const HomePage = () => {
             </Button>
           </div>
 
-          <div className='flex justify-center gap-6 mt-12'>
+          <div className='flex justify-center gap-4 sm:gap-6 mt-12 px-2'>
             <Link
               to={ASSETS.social.github}
               target='_blank'
@@ -128,10 +125,11 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
+        </div>
       </section>
 
       {/* About Section */}
-      <AboutSection projectsCount={5} yearsExperience="1.5" />
+      <AboutSection projectsCount={5} yearsExperience='1.5' />
 
       {/* Skills Section */}
       <SkillsSection skills={resumeData.skills} />

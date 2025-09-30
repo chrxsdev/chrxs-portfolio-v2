@@ -3,8 +3,8 @@ import { Logo } from '@/components/Logo';
 import type { MobileNavigationProps } from '@/types/navigation';
 
 export const MobileNavigation = ({ isMobileMenuOpen, onToggleMenu }: MobileNavigationProps) => (
-  <nav className='md:hidden fixed top-6 left-6 right-6 z-50'>
-    <div className='bg-background/70 backdrop-blur-lg rounded-full px-4 py-2 border border-border'>
+  <nav className='md:hidden fixed top-4 sm:top-6 left-3 right-3 sm:left-6 sm:right-6 z-50'>
+    <div className='bg-background/70 backdrop-blur-lg rounded-full px-3 sm:px-4 py-2 border border-border'>
       <div className='flex items-center justify-between'>
         <Logo />
         <button
