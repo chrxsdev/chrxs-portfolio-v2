@@ -256,13 +256,13 @@ const ContactPage = () => {
   };
 
   return (
-    <>
-      <section className='py-20 px-6 relative z-10'>
+    <div className='w-lvw border-2 border-white'>
+      <section className='py-20 md:px-6 px-4 relative z-10'>
         <div className='max-w-4xl mx-auto'>
           {!contactSuccess && !contactFailed ? renderContactForm() : renderContactProcess()}
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
