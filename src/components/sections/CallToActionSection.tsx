@@ -13,7 +13,7 @@ export const CallToActionSection = () => {
             Ready to Build Something Amazing?
           </h2>
 
-          <p className='text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed'>
+          <p className='text-xl text-center text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed'>
             I'm always excited to collaborate on innovative projects that push the boundaries of what's possible.
             Let's turn your vision into reality.
           </p>

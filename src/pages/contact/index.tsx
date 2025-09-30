@@ -67,40 +67,44 @@ const ContactPage = () => {
     return (
       <div className='text-center mx-auto max-w-lg'>
         {contactSuccess && (
-          <>
-            <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: successAnimation,
-                rendererSettings: {
-                  scaleMode: 'contain',
-                },
-              }}
-              height={400}
-              width={500}
-            />
+          <div className='w-full flex flex-col items-center justify-center'>
+            <div className='w-full flex justify-center'>
+              <Lottie
+                options={{
+                  loop: true,
+                  autoplay: true,
+                  animationData: successAnimation,
+                  rendererSettings: {
+                    scaleMode: 'contain',
+                  },
+                }}
+                height={400}
+                width={500}
+              />
+            </div>
             <p className='text-muted-foreground mb-8'>Thank you for reaching out! I'll get back to you as soon as possible.</p>
-          </>
+          </div>
         )}
         {contactFailed && (
-          <>
-            <Lottie
-              options={{
-                loop: true,
-                autoplay: true,
-                animationData: failAnimation,
-                rendererSettings: {
-                  scaleMode: 'contain',
-                },
-              }}
-              height={400}
-              width={500}
-            />
+          <div className='w-full flex flex-col items-center justify-center'>
+            <div className='w-full flex justify-center'>
+              <Lottie
+                options={{
+                  loop: true,
+                  autoplay: true,
+                  animationData: failAnimation,
+                  rendererSettings: {
+                    scaleMode: 'contain',
+                  },
+                }}
+                height={400}
+                width={500}
+              />
+            </div>
             <p className='text-muted-foreground mb-8'>
               Sorry, there was an error sending your message. Please try again or contact me directly via email.
             </p>
-          </>
+          </div>
         )}
         <Button
           onClick={() => navigate('/')}
@@ -114,13 +118,13 @@ const ContactPage = () => {
 
   const renderContactForm = () => {
     return (
-      <>
+      <div className='w-full px-4 md:px-4'>
         <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
           Let's Create Something Amazing
         </h2>
 
         <div className='grid md:grid-cols-2 gap-12'>
-          <div>
+          <div className='min-w-full'>
             <h3 className='text-2xl font-semibold mb-6 text-foreground'>Ready to collaborate?</h3>
             <p className='text-muted-foreground mb-8 leading-relaxed'>
               I'm always excited to work on innovative projects that push the boundaries of what's possible. Let's turn
@@ -251,12 +255,12 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   };
 
   return (
-    <div className='w-lvw border-2 border-white'>
+    <div className='w-lvw'>
       <section className='py-20 md:px-6 px-4 relative z-10'>
         <div className='max-w-4xl mx-auto'>
           {!contactSuccess && !contactFailed ? renderContactForm() : renderContactProcess()}
