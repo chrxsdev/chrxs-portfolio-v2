@@ -11,7 +11,7 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
       <div className='max-w-6xl mx-auto'>
         <div className='grid md:grid-cols-2 gap-16 items-center'>
           <div className='mx-auto'>
-            <h2 className='text-4xl md:text-left text-center font-bold mb-8 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+            <h2 className='text-4xl md:text-left text-center font-bold mb-8 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
               About Me
             </h2>
             <div className='mx-auto md:w-full w-[90%] space-y-6 text-muted-foreground leading-relaxed'>
@@ -26,7 +26,7 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
                 the latest AI features.
               </p>
               <div className='flex items-center gap-4 pt-4'>
-                <h2 className='text-xl font-bold bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+                <h2 className='text-xl font-bold bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
                   Fun facts
                 </h2>
               </div>
@@ -50,11 +50,11 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
             <div className='bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border'>
               <div className='grid grid-cols-2 gap-6 text-center'>
                 <div>
-                  <div className='text-3xl font-bold text-minimal-purple'>{projectsCount}+</div>
+                  <div className='text-3xl font-bold text-minimal-green'>{projectsCount}+</div>
                   <div className='text-muted-foreground'>Projects</div>
                 </div>
                 <div>
-                  <div className='text-3xl font-bold text-minimal-blue'>{yearsExperience}+</div>
+                  <div className='text-3xl font-bold text-minimal-lemon'>{yearsExperience}+</div>
                   <div className='text-muted-foreground'>Years</div>
                 </div>
               </div>

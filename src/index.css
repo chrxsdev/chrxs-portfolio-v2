@@ -48,8 +48,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --color-minimal-purple: var(--minimal-purple);
-  --color-minimal-blue: var(--minimal-blue);
+  --color-minimal-green: var(--minimal-green);
+  --color-minimal-lemon: var(--minimal-lemon);
 }
 
 :root {
@@ -86,8 +86,8 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  --minimal-purple: #5f5aa2;
-  --minimal-blue: #355691;
+  --minimal-green: #114B5F;
+  --minimal-lemon: #88D498;
 }
 
 .dark {
@@ -154,4 +154,15 @@ html.light {
 
 html.dark {
   color-scheme: dark;
+}
+
+/* Custom text selection styling */
+::selection {
+  background-color: #114B5F;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #114B5F;
+  color: white;
 }

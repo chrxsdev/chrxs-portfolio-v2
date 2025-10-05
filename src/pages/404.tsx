@@ -26,7 +26,7 @@ const NotFound = () => {
         <p className='text-foreground mb-8'>Sorry, the page you are looking for does not exist.</p>
         <Button
           onClick={() => navigate('/')}
-          className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 cursor-pointer'
+          className='bg-gradient-to-r from-minimal-green to-minimal-lemon hover:from-minimal-green/80 hover:to-minimal-lemon/80 text-white border-0 cursor-pointer'
         >
           Return to Home
         </Button>

@@ -13,7 +13,7 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
   return (
     <section id='projects' className='py-32 px-3 sm:px-6 relative z-10'>
       <div className='max-w-7xl mx-auto'>
-        <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+        <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
           Projects
         </h2>
 
@@ -46,7 +46,7 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                     />
                   </div>
 
-                  <div className='absolute inset-0 bg-gradient-to-t from-minimal-purple to-minimal-blue opacity-0 group-hover:opacity-20 transition-opacity duration-300' />
+                  <div className='absolute inset-0 bg-gradient-to-t from-minimal-green to-minimal-lemon opacity-0 group-hover:opacity-20 transition-opacity duration-300' />
 
                   <div className='p-6 relative z-10'>
                     <h3 className='text-xl font-bold mb-2 text-foreground'>{project.project_name}</h3>

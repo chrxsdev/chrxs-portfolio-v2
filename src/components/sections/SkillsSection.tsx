@@ -9,7 +9,7 @@ export const SkillsSection = ({ skills }: SkillsSectionProps) => {
   return (
     <section id='skills' className='py-20 px-3 sm:px-6 relative z-10'>
       <div className='max-w-6xl mx-auto'>
-        <h2 className='text-4xl font-bold md:text-left text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+        <h2 className='text-4xl font-bold md:text-left text-center mb-16 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
           Skills
         </h2>
 
@@ -19,7 +19,7 @@ export const SkillsSection = ({ skills }: SkillsSectionProps) => {
             skills.map((tech) => (
               <div
                 key={tech.id}
-                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br from-minimal-purple to-minimal-blue p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
+                className={`group relative w-28 h-28 rounded-full bg-gradient-to-br from-minimal-green to-minimal-lemon p-0.5 hover:scale-110 transition-all duration-300 cursor-pointer`}
               >
                 <div className='w-full h-full rounded-full bg-card/80 backdrop-blur-sm flex flex-col items-center justify-center'>
                   <SkillIcon name={tech.skill as IconName} />

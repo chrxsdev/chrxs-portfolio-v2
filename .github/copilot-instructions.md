@@ -116,7 +116,7 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
 - Implement **custom CSS variables** for theme colors
 - Use the `cn()` utility function for conditional classes: `cn(clsx, twMerge)`
 - Follow **mobile-first** responsive design approach
-- Use **gradient backgrounds** for text highlights: `bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent`
+- Use **gradient backgrounds** for text highlights: `bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent`
 
 ### State Management
 - Use **React hooks** for local state (`useState`, `useEffect`)
