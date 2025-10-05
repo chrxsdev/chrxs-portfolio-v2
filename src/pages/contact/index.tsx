@@ -108,7 +108,7 @@ const ContactPage = () => {
         )}
         <Button
           onClick={() => navigate('/')}
-          className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 cursor-pointer'
+          className='bg-gradient-to-r from-minimal-green to-minimal-lemon hover:from-minimal-green/80 hover:to-minimal-lemon/80 text-white border-0 cursor-pointer'
         >
           Return to Home
         </Button>
@@ -119,7 +119,7 @@ const ContactPage = () => {
   const renderContactForm = () => {
     return (
       <div className='w-full px-4 md:px-4'>
-        <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-purple to-minimal-blue bg-clip-text text-transparent'>
+        <h2 className='text-4xl font-bold text-center mb-16 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
           Let's Create Something Amazing
         </h2>
 
@@ -133,7 +133,7 @@ const ContactPage = () => {
 
             <div className='space-y-4'>
               <div className='flex items-center gap-4 p-4 bg-card/30 backdrop-blur-sm rounded-lg border border-border'>
-                <Mail className='w-6 h-6 text-minimal-purple' />
+                <Mail className='w-6 h-6 text-minimal-green' />
                 <div>
                   <div className='text-foreground font-medium'>Email</div>
                   <a href={`mailto:${ASSETS.social.email}`} className='text-muted-foreground'>
@@ -151,7 +151,7 @@ const ContactPage = () => {
                 </div>
               </div>
               <div className='flex items-center gap-4 p-4 bg-card/30 backdrop-blur-sm rounded-lg border border-border'>
-                <GitHubLogoIcon className='w-6 h-6 text-minimal-purple' />
+                <GitHubLogoIcon className='w-6 h-6 text-minimal-green' />
                 <div>
                   <div className='text-foreground font-medium'>GitHub</div>
                   <a className='text-muted-foreground' href={ASSETS.social.github} target='_blank' rel='noopener noreferrer'>
@@ -164,7 +164,7 @@ const ContactPage = () => {
 
           <div className='bg-card/30 backdrop-blur-sm rounded-2xl p-8 border border-border'>
             <div className='flex items-center gap-3 mb-6'>
-              <MessageCircle className='w-6 h-6 text-minimal-purple' />
+              <MessageCircle className='w-6 h-6 text-minimal-green' />
               <h3 className='text-2xl font-bold text-foreground'>Send a Message</h3>
             </div>
 
@@ -178,7 +178,7 @@ const ContactPage = () => {
                     id='firstName'
                     {...register('fullname')}
                     placeholder='Your cool name here'
-                    className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
+                    className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-green ${
                       errors.fullname ? 'border-red-500' : ''
                     }`}
                   />
@@ -195,7 +195,7 @@ const ContactPage = () => {
                   type='text'
                   {...register('email')}
                   placeholder='noregrets@email.com'
-                  className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
+                  className={`bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-green ${
                     errors.email ? 'border-red-500' : ''
                   }`}
                 />
@@ -210,7 +210,7 @@ const ContactPage = () => {
                   id='project'
                   {...register('project')}
                   placeholder='Web App, Mobile App, AI Project...'
-                  className='bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple'
+                  className='bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-green'
                 />
               </div>
 
@@ -222,7 +222,7 @@ const ContactPage = () => {
                   id='message'
                   {...register('message')}
                   placeholder='Tell me about your vision, job offer or any specific requirements...'
-                  className={`min-h-[120px] bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-purple ${
+                  className={`min-h-[120px] bg-input border-border text-foreground placeholder:text-muted-foreground focus:border-minimal-green ${
                     errors.message ? 'border-red-500' : ''
                   }`}
                 />
@@ -232,7 +232,7 @@ const ContactPage = () => {
               <Button
                 type='submit'
                 disabled={isSubmitting}
-                className='w-full bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 py-3 disabled:opacity-50 cursor-pointer'
+                className='w-full bg-gradient-to-r from-minimal-green to-minimal-lemon hover:from-minimal-green/80 hover:to-minimal-lemon/80 text-white border-0 py-3 disabled:opacity-50 cursor-pointer'
               >
                 {isSubmitting ? (
                   <>

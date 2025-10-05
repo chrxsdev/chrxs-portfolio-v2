@@ -10,7 +10,7 @@ export const MobileMenuOverlay = ({ pathname, isOpen, onClose }: MobileMenuOverl
   return (
     <div className='fixed inset-0 z-40 md:hidden'>
       <div 
-        className='absolute inset-0 bg-minimal-purple/80 backdrop-blur-sm'
+        className='absolute inset-0 bg-minimal-green/80 backdrop-blur-sm'
         onClick={onClose}
       />
       <div className='relative z-50 flex flex-col items-center justify-center min-h-screen space-y-8'>

@@ -42,7 +42,7 @@ const HomePage = () => {
         <div className='w-full max-w-4xl mx-auto'>
           <div className={`text-center transition-all duration-2000`}>
             <div className='mb-8 relative'>
-              <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-minimal-purple to-minimal-blue p-1 animate-pulse'>
+              <div className='w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-minimal-green to-minimal-lemon p-1 animate-pulse'>
                 <div className='w-full h-full rounded-full overflow-hidden bg-black'>
                   <img
                     src={ASSETS.profile}
@@ -53,7 +53,7 @@ const HomePage = () => {
                   />
                 </div>
               </div>
-              <div className='absolute -top-2 -right-2 w-8 h-8 bg-minimal-blue rounded-full flex items-center justify-center animate-bounce'>
+              <div className='absolute -top-2 -right-2 w-8 h-8 bg-minimal-lemon rounded-full flex items-center justify-center animate-bounce'>
                 <div className='w-3 h-3 bg-white rounded-full' />
               </div>
             </div>
@@ -94,7 +94,7 @@ const HomePage = () => {
             <div className='flex flex-col sm:flex-row gap-4 justify-center items-center px-2'>
               <Button
                 size='lg'
-                className='bg-gradient-to-r from-minimal-purple to-minimal-blue hover:from-minimal-purple/80 hover:to-minimal-blue/80 text-white border-0 px-6 sm:px-8 py-3 rounded-full cursor-pointer w-full sm:w-auto max-w-xs'
+                className='bg-gradient-to-r from-minimal-green to-minimal-lemon hover:from-minimal-green/80 hover:to-minimal-lemon/80 text-white border-0 px-6 sm:px-8 py-3 rounded-full cursor-pointer w-full sm:w-auto max-w-xs'
                 onClick={() => downloadResume(ASSETS.resume.en)}
               >
                 {isLoading ? (

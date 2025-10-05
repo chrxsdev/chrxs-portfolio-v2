@@ -14,7 +14,7 @@ export const AnimatedBackground = () => {
   return (
     <div className='fixed inset-0 z-0'>
       <div
-        className='absolute w-96 h-96 bg-gradient-to-r from-minimal-purple/20 to-minimal-blue/20 rounded-full blur-3xl transition-all duration-1000 ease-out'
+        className='absolute w-96 h-96 bg-gradient-to-r from-minimal-green/20 to-minimal-lemon/20 rounded-full blur-3xl transition-all duration-1000 ease-out'
         style={{
           left: mousePosition.x - 192,
           top: mousePosition.y - 192,
