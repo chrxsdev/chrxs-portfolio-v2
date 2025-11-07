@@ -6,7 +6,7 @@ export const getResumeInfo = async () => {
     const resumeInfo = [
       supabase.from('experience').select('*, from:from::date, to:to::date').order('order', { ascending: false }),
       supabase.from('skills').select(),
-      supabase.from('projects').select(),
+      supabase.from('projects').select().order('created_at', { ascending: false }),
     ];
 
     const [experienceData, skillsData, projectsData] = await Promise.all(resumeInfo);

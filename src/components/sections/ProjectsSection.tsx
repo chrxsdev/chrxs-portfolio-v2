@@ -36,7 +36,7 @@ export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
                   key={project.id}
                   className='group relative bg-card/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-border hover:border-border/60 transition-all duration-500 hover:scale-105 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] max-w-md'
                 >
-                  <div className='aspect-video overflow-hidden'>
+                   <div className='aspect-auto overflow-hidden h-64'>
                     <img
                       src={project.cover_img}
                       alt={project.project_name}
