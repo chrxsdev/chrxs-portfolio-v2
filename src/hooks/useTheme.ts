@@ -19,11 +19,11 @@ export const useTheme = () => {
 
 export const useThemeState = () => {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check localStorage first, then system preference, default to dark
+    // Check localStorage first, then system preference, default to light
     const stored = localStorage.getItem('theme') as Theme;
     if (stored) return stored;
     
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
