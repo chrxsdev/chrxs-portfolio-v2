@@ -252,7 +252,7 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <AboutSection projectsCount={5} yearsExperience='1.5' />
+      <AboutSection projectsCount={5} yearsExperience='2' />
 
       {/* Skills Section */}
       <SkillsSection skills={resumeData.skills} />
