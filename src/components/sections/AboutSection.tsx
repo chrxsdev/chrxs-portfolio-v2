@@ -63,10 +63,16 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
               </h2>
             </RevealOnScroll>
 
+            <RevealOnScroll>
+              <h2 className='text-4xl md:text-left text-center font-bold mb-8 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
+                About Me
+              </h2>
+            </RevealOnScroll>
+
             <div className='mx-auto md:w-full w-[90%] space-y-6 text-muted-foreground leading-relaxed'>
               <RevealOnScroll delay={0.1}>
                 <p>
-                  I'm a Fullstack Developer with 1.5+ years building scalable React.js, TypeScript, and React Native
+                  I'm a Software Engineer with 2+ years building scalable React.js, TypeScript, and React Native
                   applications with full-stack capabilities in NestJS and Spring Boot. Proven track record delivering
                   high-performance solutions through Agile collaboration, API integration, and delivering
                   high-performance applications.
