@@ -63,12 +63,6 @@ export const AboutSection = ({ projectsCount, yearsExperience }: AboutSectionPro
               </h2>
             </RevealOnScroll>
 
-            <RevealOnScroll>
-              <h2 className='text-4xl md:text-left text-center font-bold mb-8 bg-gradient-to-r from-minimal-green to-minimal-lemon bg-clip-text text-transparent'>
-                About Me
-              </h2>
-            </RevealOnScroll>
-
             <div className='mx-auto md:w-full w-[90%] space-y-6 text-muted-foreground leading-relaxed'>
               <RevealOnScroll delay={0.1}>
                 <p>
