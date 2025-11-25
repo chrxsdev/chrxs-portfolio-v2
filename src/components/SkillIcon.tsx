@@ -15,6 +15,7 @@ import {
   AmazonWebServicesDark,
   Firebase,
   Docker,
+  Supabase,
 } from '@ridemountainpig/svgl-react';
 
 interface SvgIconProps {
@@ -39,6 +40,7 @@ const ICONS: Record<IconName, React.ComponentType<SvgIconProps>> = {
   aws: AmazonWebServicesDark,
   firebase: Firebase,
   docker: Docker,
+  supabase: Supabase
 };
 
 interface IconProps {

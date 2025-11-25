@@ -13,6 +13,7 @@ export type IconName =
   | 'mongodb'
   | 'aws'
   | 'firebase'
+  | 'supabase'
   | 'docker';
 
 export interface Experience {
