@@ -46,7 +46,7 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: number | string; suffi
 
 const funFacts = [
   { icon: Coffee, label: 'Coffee Addict', color: 'text-yellow-500' },
-  { icon: Music, label: 'Music (my another passion)', color: 'text-red-500' },
+  { icon: Music, label: 'Music', color: 'text-red-500' },
   { icon: Pizza, label: 'Pizza Lover', color: 'text-blue-500' },
 ];
 
