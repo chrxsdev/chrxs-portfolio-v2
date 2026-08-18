@@ -11,7 +11,7 @@ export default function ProjectsPage() {
   return (
     <main id='main-content' className='site-shell listing-page'>
       <header className='page-intro'>
-        <p className='eyebrow font-mono'>Selected work / {String(projects.length).padStart(2, '0')}</p>
+        <p className='eyebrow font-mono'>Selected work</p>
         <h1>Products, constraints, and engineering decisions.</h1>
         <p>
           A growing collection of work focused on how each product was framed and built, not a wall of technology logos.

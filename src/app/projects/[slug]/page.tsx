@@ -73,17 +73,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </aside>
         <article className='case-study-content'>
           <section>
-            <p className='case-label font-mono'>01 / Context</p>
+            <p className='case-label font-mono'>Context</p>
             <h2>The problem</h2>
             <p>{project.problem}</p>
           </section>
           <section>
-            <p className='case-label font-mono'>02 / Product</p>
+            <p className='case-label font-mono'>Product</p>
             <h2>What was built</h2>
             <p>{project.product}</p>
           </section>
           <section>
-            <p className='case-label font-mono'>03 / Decisions</p>
+            <p className='case-label font-mono'>Decisions</p>
             <h2>Engineering choices</h2>
             <ul>
               {project.decisions.map((decision) => (
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </ul>
           </section>
           <section>
-            <p className='case-label font-mono'>04 / Architecture</p>
+            <p className='case-label font-mono'>Architecture</p>
             <h2>System shape</h2>
             <ul>
               {project.architecture.map((item) => (
@@ -101,7 +101,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </ul>
           </section>
           <section>
-            <p className='case-label font-mono'>05 / Constraints</p>
+            <p className='case-label font-mono'>Constraints</p>
             <h2>What shaped the work</h2>
             <ul>
               {project.constraints.map((constraint) => (
@@ -110,7 +110,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </ul>
           </section>
           <section>
-            <p className='case-label font-mono'>06 / Outcome</p>
+            <p className='case-label font-mono'>Outcome</p>
             <h2>Result</h2>
             <p>{project.outcome}</p>
           </section>

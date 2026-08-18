@@ -10,9 +10,9 @@ export default function HomePage() {
     <main id='main-content'>
       <section className='site-shell hero' aria-labelledby='hero-title'>
         <div className='hero-copy reveal-item' style={{ '--item-index': 0 } as React.CSSProperties}>
-          <p className='eyebrow font-mono'>Software Engineer / {site.location}</p>
+          <p className='eyebrow font-mono'>Software Engineer</p>
           <h1 id='hero-title'>
-            I build products with a frontend foundation and a systems point of view.
+            I turn <span>product ideas</span> into reliable software.
           </h1>
           <p className='hero-intro'>{site.description}</p>
           <div className='hero-links' aria-label='Profile links'>
@@ -36,16 +36,27 @@ export default function HomePage() {
             priority
             sizes='(max-width: 767px) 100vw, 34vw'
           />
-          <figcaption className='font-mono'>CM / Product-minded engineering</figcaption>
         </figure>
+        <aside className='hero-proof reveal-item' style={{ '--item-index': 2 } as React.CSSProperties} aria-label='Professional profile'>
+          <p>
+            <strong>2+ years</strong>
+            <span>shipping production software</span>
+          </p>
+          <p>
+            <strong>Fintech</strong>
+            <span>current product domain</span>
+          </p>
+          <p>
+            <strong>React + TypeScript</strong>
+            <span>core engineering foundation</span>
+          </p>
+        </aside>
       </section>
 
       <section className='site-shell section-block' id='work' aria-labelledby='work-title'>
         <SectionHeading
-          index='01'
-          label='Selected work'
-          title='Products before technology.'
-          description='A small set of projects presented through the problem, the engineering choices, and the resulting product.'
+          title='Selected work.'
+          description='Products framed through the problem, the engineering decisions, and the result.'
         />
         <div className='project-list'>
           {featuredProjects.map((project, index) => (
@@ -60,24 +71,19 @@ export default function HomePage() {
 
       <section className='site-shell section-block' id='experience' aria-labelledby='experience-title'>
         <SectionHeading
-          index='02'
-          label='Experience'
-          title='Building across the product surface.'
-          description='A concise view of current professional work. The full chronology remains in the resume.'
+          title='Experience, in brief.'
+          description='Frontend ownership, full-stack delivery, backend performance, and cloud operations across four product teams.'
         />
         <ol className='experience-list'>
           {experience.map((item) => (
             <li key={item.company}>
-              <div className='experience-marker' aria-hidden='true' />
+              <p className='experience-period font-mono'>{item.period}</p>
               <div>
                 <p className='experience-company'>{item.company}</p>
                 <h3>{item.role}</h3>
               </div>
               <p>{item.summary}</p>
-              <div className='experience-meta font-mono'>
-                <span>{item.period}</span>
-                <span>{item.location}</span>
-              </div>
+              <p className='experience-location font-mono'>{item.location}</p>
             </li>
           ))}
         </ol>
@@ -85,23 +91,20 @@ export default function HomePage() {
 
       <section className='site-shell section-block focus-section' id='focus' aria-labelledby='focus-title'>
         <SectionHeading
-          index='03'
-          label='Focus'
-          title='The areas I am moving deeper into.'
-          description='React and TypeScript remain core tools, while the work increasingly spans product decisions, AI-enabled workflows, infrastructure, and system design.'
+          title='Where the work is heading.'
+          description='A frontend foundation expanding into product decisions, AI-enabled development, infrastructure, and system design.'
         />
         <div className='focus-grid'>
-          <ol className='focus-list'>
-            {focusAreas.map((area, index) => (
+          <ul className='focus-list'>
+            {focusAreas.map((area) => (
               <li key={area}>
-                <span className='font-mono'>{String(index + 1).padStart(2, '0')}</span>
                 {area}
               </li>
             ))}
-          </ol>
+          </ul>
           <aside className='core-stack' aria-label='Core technologies'>
             <p className='font-mono'>Core technologies</p>
-            <p>{coreTechnologies.join(' · ')}</p>
+            <p>{coreTechnologies.join(' / ')}</p>
           </aside>
         </div>
       </section>

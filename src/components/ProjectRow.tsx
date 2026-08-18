@@ -9,14 +9,13 @@ interface ProjectRowProps {
 
 export const ProjectRow = ({ project, index }: ProjectRowProps) => (
   <article className='project-row reveal-item' style={{ '--item-index': index } as React.CSSProperties}>
-    <div className='project-number font-mono'>{String(index + 1).padStart(2, '0')}</div>
     <Link className='project-thumbnail' href={`/projects/${project.slug}`} tabIndex={-1} aria-hidden='true'>
       <Image
         src={project.thumbnail.src}
         alt=''
         width={project.thumbnail.width}
         height={project.thumbnail.height}
-        sizes='(max-width: 720px) calc(100vw - 4.5rem), 13rem'
+        sizes='(max-width: 720px) calc(100vw - 2.5rem), 52vw'
       />
     </Link>
     <div className='project-body'>
@@ -30,9 +29,9 @@ export const ProjectRow = ({ project, index }: ProjectRowProps) => (
           <li key={technology}>{technology}</li>
         ))}
       </ul>
+      <Link className='project-link font-mono' href={`/projects/${project.slug}`} aria-label={`Read the ${project.title} case study`}>
+        Read case study <span aria-hidden='true'>&#8594;</span>
+      </Link>
     </div>
-    <Link className='project-link font-mono' href={`/projects/${project.slug}`} aria-label={`Read the ${project.title} case study`}>
-      Case study <span aria-hidden='true'>&#8594;</span>
-    </Link>
   </article>
 );
