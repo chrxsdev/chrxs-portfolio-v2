@@ -1,24 +1,24 @@
-# Portfolio Refactor Brief
+# Portfolio Architecture Brief
 
 ## Scope
 
-The portfolio is evolving into a public platform for work, experience, and writing, backed by Supabase. Retain its existing fonts and colors.
+The portfolio positions Cristhian as a Software Engineer with a strong frontend foundation and growing focus on product engineering, AI-assisted development, infrastructure, and system design. It is static-first and content-driven.
 
 ## Public Routes
 
-- `/` presents the portfolio and key sections.
-- `/projects` presents selected work with a title, summary, stack, links, and thumbnail.
-- `/blog` lists posts with an excerpt, date, reading time, and tags.
-- `/blog/[slug]` renders readable content with headings, code, images, and quotes.
-- `/experience` may be a dedicated route or a substantial home-page section.
+- `/` presents a concise hero, selected work, experience, and focus areas.
+- `/projects` lists documented work.
+- `/projects/[slug]` presents product context, constraints, architecture, decisions, and outcomes.
+- `/blog` is prepared for local writing without adding an empty home-page section.
+- `/blog/[slug]` renders registered local MDX articles.
 
 ## Experience and Projects
 
-Experience entries should form a connected timeline with company, role, dates, description, and key points. Project layouts can be staggered or editorial, with progressive reveal and restrained hover feedback.
+Experience remains compact and does not duplicate the resume. Projects emphasize product problems and engineering decisions before technology. Add only verified work; never create placeholders to fill the layout.
 
-## Admin
+## Content
 
-Private `/admin` surfaces manage experiences, projects, and articles. Each entity needs list, create, edit, and delete workflows, and appropriate fields such as title, content, dates, tags, featured state, and display order. Supabase data should drive public content.
+Project records are typed files under `content/projects`. Writing uses local MDX under `content/blog` and a small registry for metadata and static routing. The site should not require environment variables or remote data to render.
 
 ## Motion
 

@@ -1,23 +1,23 @@
 ---
 name: portfolio-refactor
-description: Refactor or extend this portfolio while preserving its established brand and Supabase backend. Use for work on portfolio pages, the planned blog, experience timeline, projects, or private admin surfaces.
+description: Refactor or extend this static-first engineering portfolio while preserving its restrained editorial direction and local-content architecture.
 ---
 
 # Portfolio Refactor
 
-Preserve the current typography, color palette, and CSS theme tokens. Improve the product through composition, hierarchy, spacing, component shape, and motion; do not replace the visual identity unless the user explicitly asks.
+Preserve the Instrument Sans and Geist Mono typography, warm neutral palette, single green accent, and editorial hierarchy. Improve through composition, spacing, content, and purposeful interaction rather than decorative effects.
 
 ## Design Direction
 
-- Favor a modern, editorial, slightly asymmetric portfolio composition over generic dashboard or equal-card layouts.
+- Favor a technical, editorial, slightly asymmetric composition over generic cards or dashboard layouts.
 - Keep motion subtle and purposeful: use transform and opacity for progressive scroll reveals, stagger only related content, and respect `prefers-reduced-motion`.
 - Make hover and active states tactile but restrained. Maintain readable contrast and visible keyboard focus.
-- Keep public portfolio content, blog reading, and admin management visually related without making the admin interface a copy of a generic sidebar dashboard.
+- Avoid gradients, glassmorphism, decorative terminals, skill clouds, percentage indicators, and unnecessary rounded containers.
 
 ## Product Constraints
 
-- Continue using Supabase for persisted data and authentication. Do not introduce a replacement backend.
-- Admin access is private: no public sign-up or password-reset flows. Avoid exposing credentials in client code.
-- Use file-based routes under `src/pages`. Blog routes should follow `/blog` and `/blog/[slug]`; admin routes should be isolated under `/admin`.
+- Keep the site static-first with Server Components and local typed content.
+- Do not add authentication, databases, API routes, or admin surfaces without an explicit requirement.
+- Use App Router routes under `src/app`. Projects live at `/projects/[slug]`; writing lives at `/blog/[slug]` when posts exist.
 
 Read [the feature brief](references/feature-brief.md) when the task adds or substantially changes the blog, experience timeline, projects, or admin features.
