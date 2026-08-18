@@ -1,38 +1,25 @@
-# Welcome! 🚀
+# Cristhian Martinez - Portfolio
 
-Hi! I'm **Chris**, a passionate developer who loves building creative digital experiences. This portfolio is a showcase of my work, skills, and projects.
+A static-first engineering portfolio focused on product work, architecture, and technical decisions. Built with Next.js App Router, React, TypeScript, Tailwind CSS, and local typed content.
 
----
+## Development
 
-## 👋 Say Hi
-I'm building this portfolio into a dynamic platform to share my ideas, projects, and connect with the developer community. My goal is to make it a space for creativity, learning, and engagement—whether through blogs, interactive showcases, or collaborative features.
+```bash
+pnpm install
+pnpm dev
+```
 
----
+Open `http://localhost:3000`.
 
-## ✨ Upcoming Improvements
+## Commands
 
-Here are some ideas I'm excited to explore for the future of this platform:
+- `pnpm dev` starts the development server.
+- `pnpm lint` checks code quality and Core Web Vitals rules.
+- `pnpm build` creates and validates the production build.
+- `pnpm start` serves the production build.
 
-- **AI-powered Translations:** Make content accessible in multiple languages using intelligent translation tools.
-- **Fun AI Features:** Integrate playful and creative AI-powered experiences, like interactive demos or generative art.
-- **Community Engagement:** Add ways for visitors to share feedback, join discussions, or contribute their own ideas.
-- **Blog & Knowledge Sharing:** Launch a blog section to share insights, tutorials, and stories from my journey.
+## Content
 
-This portfolio is just the beginning—I'm always looking for new ways to make it more useful and fun for everyone!
+Project case studies live in `content/projects`. Add writing as local MDX in `content/blog` and register published entries in `src/content/posts.ts`. Site identity, experience, and focus areas live in `src/content/site.ts`.
 
----
-
-## 🛠️ Tech Stack
-
-<table>
-  <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" height="40" alt="React"/><br/>React</td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40" alt="TypeScript"/><br/>TypeScript</td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" width="40" height="40" alt="Vite"/><br/>Vite</td>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/54469796?s=200&v=4" width="40" height="40" alt="Supabase"/><br/>Supabase</td>
-  </tr>
-</table>
-
----
-
-> Thanks for visiting! ✨
+Routes use the App Router under `src/app`, including static project pages, future blog pages, metadata, Open Graph imagery, `sitemap.xml`, and `robots.txt`.
